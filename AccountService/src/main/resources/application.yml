@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: ACCOUNT-SERVICE
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: financeDb
+
+server:
+  port: 8082
+  servlet:
+    context-path: /api/v1
+
+
+
