@@ -1,3 +1,6 @@
+server:
+  port: 8084
+
 spring:
   application:
     name: CATEGORY-SERVICE
@@ -6,11 +9,9 @@ spring:
       host: localhost
       port: 27017
       database: financeDb
+  config:
+    import: configserver:http://localhost:8086
 
-server:
-  port: 8084
-  servlet:
-    context-path: /api/v1
 
 
 

@@ -1,0 +1,34 @@
+server:
+  port: 8087
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: USER-SERVICE
+              uri: lb://USER-SERVICE
+              predicates:
+                - Path=/user/**,/admin/**,/public/**
+            - id: ACCOUNT-SERVICE
+              uri: lb://ACCOUNT-SERVICE
+              predicates:
+                - Path=/account/**
+            - id: GOAL-SERVICE
+              uri: lb://GOAL-SERVICE
+              predicates:
+                - Path=/goal/**
+            - id: CATEGORY-SERVICE
+              uri: lb://CATEGORY-SERVICE
+              predicates:
+                - Path=/category/**
+            - id: TRANSACTION-SERVICE
+              uri: lb://TRANSACTION-SERVICE
+              predicates:
+                - Path=/transaction/**
+
+  config:
+    import: configserver:http://localhost:8086

@@ -55,6 +55,6 @@ public class CategoryServiceImpl implements CategoryService{
 
     @Override
     public Category getCategory(String userId, String categoryName) {
-        return categoryRepository.findByUserIdAndCategory(userId, categoryName);
+        return categoryRepository.findByUserIdAndCategoryName(userId, categoryName);
     }
 }

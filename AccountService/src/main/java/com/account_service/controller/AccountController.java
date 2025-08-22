@@ -54,4 +54,10 @@ public class AccountController {
         return ResponseEntity.ok(allAccounts);
     }
 
+    @GetMapping("single-account/{accountId}")
+    public ResponseEntity<Account> singleAccount(@PathVariable String accountId) {
+        Account account = accountService.getAccount(accountId);
+        return ResponseEntity.ok(account);
+    }
+
 }

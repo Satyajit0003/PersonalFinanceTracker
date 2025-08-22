@@ -1,0 +1,23 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: GOAL-SERVICE
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: financeDb
+  config:
+    import: configserver:http://localhost:8086
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+
+
+
+

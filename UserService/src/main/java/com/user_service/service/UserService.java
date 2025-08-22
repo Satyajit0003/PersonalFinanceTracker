@@ -12,6 +12,8 @@ public interface UserService {
 
     User getUserById(String id);
 
+    User getUser(String userId);
+
     List<User> getAllUsers();
 
     User updateUser(UserDto userDto, String userId);

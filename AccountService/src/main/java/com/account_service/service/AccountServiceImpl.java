@@ -1,12 +1,16 @@
 package com.account_service.service;
 
 import com.account_service.dto.AccountDto;
+import com.account_service.dto.EmailDto;
 import com.account_service.entity.Account;
 import com.account_service.entity.Transaction;
+import com.account_service.entity.User;
 import com.account_service.exception.AccountNotFoundException;
 import com.account_service.exception.TransactionNotFoundException;
 import com.account_service.exception.UserNotFoundException;
 import com.account_service.feignService.TransactionService;
+import com.account_service.feignService.UserService;
+import com.account_service.kafka.AccountKafkaProducer;
 import com.account_service.repository.AccountRepository;
 import org.springframework.stereotype.Service;
 
@@ -18,10 +22,14 @@ public class AccountServiceImpl implements AccountService{
 
     private final AccountRepository accountRepository;
     private final TransactionService transactionService;
+    private final AccountKafkaProducer accountkafkaProducer;
+    private final UserService userService;
 
-    public AccountServiceImpl(AccountRepository accountRepository, TransactionService transactionService) {
+    public AccountServiceImpl(AccountRepository accountRepository, TransactionService transactionService, AccountKafkaProducer accountkafkaProducer, UserService userService) {
         this.accountRepository = accountRepository;
         this.transactionService = transactionService;
+        this.accountkafkaProducer = accountkafkaProducer;
+        this.userService = userService;
     }
 
     @Override
@@ -31,6 +39,14 @@ public class AccountServiceImpl implements AccountService{
         account.setBalance(accountDto.getBalance());
         account.setAccountType(accountDto.getAccountType().toUpperCase());
         account.setCreateDate(LocalDate.now().toString());
+        User user = userService.singleUser(accountDto.getUserId())
+                .orElseThrow(() -> new UserNotFoundException("User not found with id: " + accountDto.getUserId()));
+        EmailDto event = new EmailDto(
+                user.getEmail(),
+                "Account Created",
+                "Dear " + user.getUserName() + ",\n\nYour account has been created successfully.\n\nAccount Details:\nAccount ID: " + account.getAccountId() + "\nAccount Type: " + account.getAccountType() + "\nBalance: $" + account.getBalance() + "\nThank you for choosing our bank."
+        );
+        accountkafkaProducer.produceAccountNotification(event);
         return accountRepository.save(account);
     }
 
@@ -45,6 +61,11 @@ public class AccountServiceImpl implements AccountService{
         List<Transaction> transactions = transactionService.getTransactionsByAccountId(account.getAccountId()).orElseThrow(() -> new TransactionNotFoundException("No transactions found for account with id: " + accountId));
         account.setTransactions(transactions);
         return account;
+    }
+
+    @Override
+    public Account getAccount(String accountId) {
+        return accountRepository.findById(accountId).orElseThrow(() -> new AccountNotFoundException("Account not found with id: " + accountId));
     }
 
     @Override

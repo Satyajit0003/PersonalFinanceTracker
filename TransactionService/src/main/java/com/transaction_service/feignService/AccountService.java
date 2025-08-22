@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Optional;
 
-@FeignClient(name = "ACCOUNT-SERVICE", url = "http://localhost:8082/api/v1")
+@FeignClient(name = "ACCOUNT-SERVICE")
 public interface AccountService {
 
-    @GetMapping("/account/get-account/{accountId}")
-    Optional<Account> getAccountById(@PathVariable String accountId);
+    @GetMapping("/account/single-account/{accountId}")
+    Optional<Account> singleAccount(@PathVariable String accountId);
 
     @PutMapping("/account/update-account/{accountId}")
     void updateAccount(@RequestBody AccountDto accountDto, @PathVariable String accountId);

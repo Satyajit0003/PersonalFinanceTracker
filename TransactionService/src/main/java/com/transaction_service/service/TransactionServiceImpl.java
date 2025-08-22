@@ -2,13 +2,17 @@ package com.transaction_service.service;
 
 import com.transaction_service.dto.AccountDto;
 import com.transaction_service.dto.CategoryDto;
+import com.transaction_service.dto.EmailDto;
 import com.transaction_service.dto.TransactionDto;
 import com.transaction_service.entity.Account;
 import com.transaction_service.entity.Category;
 import com.transaction_service.entity.Transaction;
+import com.transaction_service.entity.User;
 import com.transaction_service.exception.*;
 import com.transaction_service.feignService.AccountService;
 import com.transaction_service.feignService.CategoryService;
+import com.transaction_service.feignService.UserService;
+import com.transaction_service.kafka.LimitKafkaProducer;
 import com.transaction_service.repository.TransactionRepository;
 import org.springframework.stereotype.Service;
 
@@ -21,17 +25,21 @@ public class TransactionServiceImpl implements TransactionService{
     private final TransactionRepository transactionRepository;
     private final AccountService accountService;
     private final CategoryService categoryService;
+    private final UserService userService;
+    private final LimitKafkaProducer limitKafkaProducer;
 
-    public TransactionServiceImpl(TransactionRepository transactionRepository, AccountService accountService, CategoryService categoryService) {
+    public TransactionServiceImpl(TransactionRepository transactionRepository, AccountService accountService, CategoryService categoryService, UserService userService, LimitKafkaProducer limitKafkaProducer) {
         this.transactionRepository = transactionRepository;
         this.accountService = accountService;
         this.categoryService = categoryService;
+        this.userService = userService;
+        this.limitKafkaProducer = limitKafkaProducer;
     }
 
     @Override
     public Transaction createTransaction(TransactionDto transactionDto) {
         Transaction transaction = new Transaction();
-        Account account = accountService.getAccountById(transactionDto.getAccountId()).orElseThrow(() -> new AccountNotFoundException("Account not found with id: " + transactionDto.getAccountId()));
+        Account account = accountService.singleAccount(transactionDto.getAccountId()).orElseThrow(() -> new AccountNotFoundException("Account not found with id: " + transactionDto.getAccountId()));
         Category category = categoryService.getCategoryByUser(account.getUserId(), transactionDto.getCategory()).orElseThrow(() -> new CategoryNotFoundException("Category not found for user: " + account.getUserId() + " and category: " + transactionDto.getCategory()));
         String transactionType = transactionDto.getType().toUpperCase();
         if(transactionType.equals("CREDIT")) {
@@ -40,6 +48,13 @@ public class TransactionServiceImpl implements TransactionService{
             if(account.getBalance() < transactionDto.getAmount()) {
                 throw new NotSufficentBalanceException("Insufficient balance for debit transaction in account with id: " + transactionDto.getAccountId());
             } else if (category.getLimitAmount()==0) {
+                User user = userService.singleUser(account.getUserId()).orElseThrow(() -> new UserNotFoundException("User not found with id: " + account.getUserId()));
+                EmailDto event = new EmailDto(
+                        user.getEmail(),
+                        "Limit Exceeded Notification" ,
+                        "Dear " + user.getUserName() + ",\n\nYou have exceeded your limit for the category: " + transactionDto.getCategory() + "If you need more amount, please update your limit in the Category Service.\n\nBest regards,\nTransaction Service"
+                );
+                limitKafkaProducer.produceLimitNotification(event);
                 throw new LimitExceededException("Limit exceeded for category: " + transactionDto.getCategory() + " for user: " + account.getUserId());
             } else{
                 account.setBalance(account.getBalance() - transactionDto.getAmount());
@@ -92,20 +107,19 @@ public class TransactionServiceImpl implements TransactionService{
     @Override
     public void deleteTransaction(String transactionId) {
         Transaction transaction = transactionRepository.findById(transactionId).orElseThrow(() -> new TransactionNotFoundException("Transaction not found with id: " + transactionId));
-        Account account = accountService.getAccountById(transaction.getAccountId()).orElseThrow(() -> new AccountNotFoundException("Account not found with id: " + transaction.getAccountId()));
+        Account account = accountService.singleAccount(transaction.getAccountId()).orElseThrow(() -> new AccountNotFoundException("Account not found with id: " + transaction.getAccountId()));
         String transactionType = transaction.getTransactionType();
+        Category category = categoryService.getCategoryByUser(account.getUserId(), transaction.getCategory()).orElseThrow(() -> new CategoryNotFoundException("Category not found for user: " + account.getUserId() + " and category: " + transaction.getCategory()));
         if(transactionType.equals("CREDIT")) {
             account.setBalance(account.getBalance() - transaction.getAmount());
         } else if(transactionType.equals("DEBIT")) {
-            if(account.getBalance() < transaction.getAmount()) {
-                throw new NotSufficentBalanceException("Insufficient balance for debit transaction in account with id: " + transaction.getAccountId());
-            }else {
-                account.setBalance(account.getBalance() + transaction.getAmount());
-            }
+            account.setBalance(account.getBalance() + transaction.getAmount());
+            category.setLimitAmount(category.getLimitAmount() + transaction.getAmount());
         } else {
             throw new IllegalArgumentException("Invalid transaction type: " + transactionType);
         }
         convertAccountEntityToDto(account);
+        convertCategoryEntityToDto(category);
         transactionRepository.delete(transaction);
     }
 

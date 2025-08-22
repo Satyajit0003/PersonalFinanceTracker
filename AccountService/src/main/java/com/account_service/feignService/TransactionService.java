@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 import java.util.Optional;
 
-@FeignClient(name = "TRANSACTION-SERVICE", url = "http://localhost:8083/api/v1")
+@FeignClient(name = "TRANSACTION-SERVICE")
 public interface TransactionService {
 
     @GetMapping("/transaction/transactions-by-accountId/{accountId}")

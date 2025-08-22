@@ -13,6 +13,8 @@ public interface AccountService {
 
     Account getAccountById(String accountId);
 
+    Account getAccount(String accountId);
+
     List<Account> getAccountsByUserId(String userId);
 
     Account updateAccount(AccountDto accountDto, String accountId);
