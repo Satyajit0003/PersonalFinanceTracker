@@ -1,0 +1,17 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: USER-SERVICE
+  config:
+    import: configserver:http://localhost:8086
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+
+
+

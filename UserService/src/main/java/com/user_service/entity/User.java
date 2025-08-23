@@ -37,4 +37,12 @@ public class User {
     @Transient
     @DBRef
     List<Account> accounts;
+
+    @Transient
+    @DBRef
+    List<Transaction> transactions ;
+
+    @Transient
+    @DBRef
+    List<Goal> goals ;
 }

@@ -29,4 +29,16 @@ public class AdminController {
         List<User> allUsers = userService.getAllUsers();
         return ResponseEntity.ok(allUsers);
     }
+
+    @GetMapping("/get-user/{userId}")
+    public ResponseEntity<User> getUserById(@PathVariable String userId) {
+        User user = userService.getUserById(userId);
+        return ResponseEntity.ok(user);
+    }
+
+    @GetMapping("/single-user/{userId}")
+    public ResponseEntity<User> singleUser(@PathVariable String userId) {
+        User user = userService.getUser(userId);
+        return ResponseEntity.ok(user);
+    }
 }

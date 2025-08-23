@@ -2,11 +2,13 @@ package com.user_service.service;
 
 import com.user_service.dto.UserDto;
 import com.user_service.entity.Account;
+import com.user_service.entity.Goal;
+import com.user_service.entity.Transaction;
 import com.user_service.entity.User;
-import com.user_service.exception.AccountNotFoundException;
-import com.user_service.exception.UserAlreadyExistsException;
-import com.user_service.exception.UserNotFoundException;
+import com.user_service.exception.*;
 import com.user_service.feignService.AccountService;
+import com.user_service.feignService.GoalService;
+import com.user_service.feignService.TransactionService;
 import com.user_service.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,10 +19,14 @@ public class UserServiceImpl implements UserService{
 
     private final UserRepository userRepository;
     private final AccountService accountService;
+    private final TransactionService transactionService;
+    private final GoalService goalService;
 
-    public UserServiceImpl(UserRepository userRepository, AccountService accountService) {
+    public UserServiceImpl(UserRepository userRepository, AccountService accountService, TransactionService transactionService, GoalService goalService) {
         this.userRepository = userRepository;
         this.accountService = accountService;
+        this.transactionService = transactionService;
+        this.goalService = goalService;
     }
 
     @Override
@@ -39,8 +45,12 @@ public class UserServiceImpl implements UserService{
     @Override
     public User getUserById(String userId) {
         List<Account> accounts = accountService.getAccountsByUserId(userId).orElseThrow(() -> new AccountNotFoundException("Accounts for user with ID " + userId + " not found."));
+        List<Transaction> transactions = transactionService.getTransactionsByUserId(userId).orElseThrow(() -> new TransactionNotFoundException("Transactions for user with ID " + userId + " not found."));
+        List<Goal> goals = goalService.getGoalsByUserId(userId).orElseThrow(() -> new GoalNotFoundException("Goals for user with ID " + userId + " not found."));
         User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User with ID " + userId + " not found."));
         user.setAccounts(accounts);
+        user.setTransactions(transactions);
+        user.setGoals(goals);
         return user;
     }
 
