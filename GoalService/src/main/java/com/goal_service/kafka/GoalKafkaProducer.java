@@ -1,6 +1,6 @@
 package com.goal_service.kafka;
 
-import com.goal_service.dto.EmailDto;
+import com.common_library.dto.EmailDto;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 

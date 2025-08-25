@@ -1,7 +1,6 @@
 package com.account_service.service;
 
 import com.account_service.dto.AccountDto;
-import com.account_service.dto.EmailDto;
 import com.account_service.entity.Account;
 import com.account_service.entity.Transaction;
 import com.account_service.entity.User;
@@ -12,6 +11,7 @@ import com.account_service.feignService.TransactionService;
 import com.account_service.feignService.UserService;
 import com.account_service.kafka.AccountKafkaProducer;
 import com.account_service.repository.AccountRepository;
+import com.common_library.dto.EmailDto;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;

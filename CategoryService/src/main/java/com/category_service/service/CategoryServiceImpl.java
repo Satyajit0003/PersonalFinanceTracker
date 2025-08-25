@@ -2,6 +2,7 @@ package com.category_service.service;
 
 import com.category_service.dto.CategoryDto;
 import com.category_service.entity.Category;
+import com.category_service.exception.CategoryAlreadyExistsException;
 import com.category_service.exception.CategoryNotFoundException;
 import com.category_service.repository.CategoryRepository;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,10 @@ public class CategoryServiceImpl implements CategoryService{
 
     @Override
     public Category createCategory(CategoryDto categoryDto) {
+        Category categoryOptional = categoryRepository.findByUserIdAndCategoryName(categoryDto.getUserId(), categoryDto.getCategory());
+        if(categoryOptional != null) {
+            throw new CategoryAlreadyExistsException("Category already exists for user: " + categoryDto.getUserId());
+        }
         Category category = new Category();
         category.setUserId(categoryDto.getUserId());
         category.setCategoryName(categoryDto.getCategory().toUpperCase());
@@ -36,7 +41,7 @@ public class CategoryServiceImpl implements CategoryService{
     public Category updateCategory(CategoryDto categoryDto, String categoryId) {
         Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new CategoryNotFoundException("Category not found with id: " + categoryId));
         category.setUserId(categoryDto.getUserId());
-        category.setCategoryName(categoryDto.getCategory());
+        category.setCategoryName(categoryDto.getCategory().toUpperCase());
         category.setLimitAmount(categoryDto.getLimitAmount());
         categoryRepository.save(category);
         return category;

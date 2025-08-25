@@ -17,5 +17,5 @@ public interface CategoryService {
     Optional<Category> getCategoryByUser(@PathVariable String userId, @PathVariable String categoryName);
 
     @PutMapping("/category/update-category/{categoryId}")
-    void updateCategory(@RequestBody CategoryDto categoryDto, @PathVariable String categoryId);
+    Category updateCategory(@RequestBody CategoryDto categoryDto,@PathVariable String categoryId);
 }

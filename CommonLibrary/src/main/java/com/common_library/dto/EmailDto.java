@@ -1,4 +1,4 @@
-package com.report_service.email;
+package com.common_library.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,8 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EmailEvent {
-
+public class EmailDto {
     private String email;
     private String subject;
     private String body;

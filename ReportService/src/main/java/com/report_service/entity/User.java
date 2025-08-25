@@ -16,6 +16,7 @@ public class User {
     private String email;
     private String password;
     private String role;
+    List<Account> accounts;
     List<Transaction> transactions ;
     List<Goal> goals ;
 }

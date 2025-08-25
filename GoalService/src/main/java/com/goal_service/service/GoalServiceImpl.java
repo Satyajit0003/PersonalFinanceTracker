@@ -1,7 +1,7 @@
 package com.goal_service.service;
 
+import com.common_library.dto.EmailDto;
 import com.goal_service.dto.AccountDto;
-import com.goal_service.dto.EmailDto;
 import com.goal_service.dto.GoalDto;
 import com.goal_service.entity.Account;
 import com.goal_service.entity.Goal;

@@ -1,8 +1,8 @@
 package com.transaction_service.service;
 
+import com.common_library.dto.EmailDto;
 import com.transaction_service.dto.AccountDto;
 import com.transaction_service.dto.CategoryDto;
-import com.transaction_service.dto.EmailDto;
 import com.transaction_service.dto.TransactionDto;
 import com.transaction_service.entity.Account;
 import com.transaction_service.entity.Category;
@@ -40,7 +40,7 @@ public class TransactionServiceImpl implements TransactionService{
     public Transaction createTransaction(TransactionDto transactionDto) {
         Transaction transaction = new Transaction();
         Account account = accountService.singleAccount(transactionDto.getAccountId()).orElseThrow(() -> new AccountNotFoundException("Account not found with id: " + transactionDto.getAccountId()));
-        Category category = categoryService.getCategoryByUser(account.getUserId(), transactionDto.getCategory()).orElseThrow(() -> new CategoryNotFoundException("Category not found for user: " + account.getUserId() + " and category: " + transactionDto.getCategory()));
+        Category category = categoryService.getCategoryByUser(account.getUserId(), transactionDto.getCategory().toUpperCase()).orElseThrow(() -> new CategoryNotFoundException("Category not found for user: " + account.getUserId() + " and category: " + transactionDto.getCategory()));
         String transactionType = transactionDto.getType().toUpperCase();
         if(transactionType.equals("CREDIT")) {
             account.setBalance(account.getBalance() + transactionDto.getAmount());
@@ -52,7 +52,7 @@ public class TransactionServiceImpl implements TransactionService{
                 EmailDto event = new EmailDto(
                         user.getEmail(),
                         "Limit Exceeded Notification" ,
-                        "Dear " + user.getUserName() + ",\n\nYou have exceeded your limit for the category: " + transactionDto.getCategory() + "If you need more amount, please update your limit in the Category Service.\n\nBest regards,\nTransaction Service"
+                        "Dear " + user.getUserName() + ",\n\nYou have exceeded your limit for the category: " + transactionDto.getCategory() + " If you need more amount, please update your limit in the Category Service.\n\nBest regards,\nTransaction Service"
                 );
                 limitKafkaProducer.produceLimitNotification(event);
                 throw new LimitExceededException("Limit exceeded for category: " + transactionDto.getCategory() + " for user: " + account.getUserId());
@@ -87,7 +87,7 @@ public class TransactionServiceImpl implements TransactionService{
     public void convertCategoryEntityToDto(Category category) {
         CategoryDto categoryDto = new CategoryDto();
         categoryDto.setUserId(category.getUserId());
-        categoryDto.setCategoryName(category.getCategoryName());
+        categoryDto.setCategory(category.getCategoryName());
         categoryDto.setLimitAmount(category.getLimitAmount());
         categoryService.updateCategory(categoryDto, category.getId());
     }

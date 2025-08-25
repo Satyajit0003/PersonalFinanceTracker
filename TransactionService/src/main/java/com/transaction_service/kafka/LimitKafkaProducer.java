@@ -1,7 +1,7 @@
 package com.transaction_service.kafka;
 
 
-import com.transaction_service.dto.EmailDto;
+import com.common_library.dto.EmailDto;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 

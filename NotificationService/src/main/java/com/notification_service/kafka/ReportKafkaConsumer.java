@@ -1,6 +1,6 @@
 package com.notification_service.kafka;
 
-import com.notification_service.email.EmailEvent;
+import com.common_library.dto.EmailDto;
 import com.notification_service.email.EmailService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -18,14 +18,14 @@ public class ReportKafkaConsumer {
     }
 
     @KafkaListener(topics = "report-notifications", groupId = "group-1" )
-    public void consumeAccountNotification(EmailEvent emailEvent, Acknowledgment acknowledgment) {
+    public void consumeAccountNotification(EmailDto emailDto, Acknowledgment acknowledgment) {
         emailService.sendEmail(
-                emailEvent.getEmail(),
-                emailEvent.getSubject(),
-                emailEvent.getBody()
+                emailDto.getEmail(),
+                emailDto.getSubject(),
+                emailDto.getBody()
         );
         acknowledgment.acknowledge();
-        log.info("Email notification consumed: {}", emailEvent.getEmail());
+        log.info("Email notification consumed: {}", emailDto.getEmail());
     }
 }
 

@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CategoryDto {
     private String userId;
-    private String categoryName;
+    private String category;
     private Double limitAmount;
 }
