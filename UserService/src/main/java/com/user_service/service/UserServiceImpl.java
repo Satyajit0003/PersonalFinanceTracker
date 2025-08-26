@@ -1,9 +1,10 @@
 package com.user_service.service;
 
+
+import com.common_library.entity.Account;
+import com.common_library.entity.Goal;
+import com.common_library.entity.Transaction;
 import com.user_service.dto.UserDto;
-import com.user_service.entity.Account;
-import com.user_service.entity.Goal;
-import com.user_service.entity.Transaction;
 import com.user_service.entity.User;
 import com.user_service.exception.*;
 import com.user_service.feignService.AccountService;

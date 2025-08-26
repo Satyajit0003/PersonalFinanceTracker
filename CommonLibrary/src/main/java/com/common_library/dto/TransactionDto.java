@@ -1,4 +1,4 @@
-package com.account_service.entity;
+package com.common_library.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,14 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Transaction {
-
-    private String transactionId;
+public class TransactionDto {
     private String userId;
     private String accountId;
-    private String transactionType;
+    private String type;
     private double amount;
     private String category;
     private String description;
-    private String date;
 }
+

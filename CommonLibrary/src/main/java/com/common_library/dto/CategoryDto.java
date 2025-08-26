@@ -1,4 +1,4 @@
-package com.goal_service.entity;
+package com.common_library.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,11 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class CategoryDto {
     private String userId;
-    private String userName;
-
-    private String email;
-
-    private String password;
+    private String category;
+    private Double limitAmount;
 }

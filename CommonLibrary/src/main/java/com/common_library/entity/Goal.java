@@ -1,7 +1,7 @@
-package com.report_service.entity;
+package com.common_library.entity;
 
 
-import com.report_service.enums.Status;
+import com.common_library.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

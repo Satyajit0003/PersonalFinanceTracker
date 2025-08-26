@@ -1,13 +1,13 @@
 package com.report_service.service;
 
 import com.common_library.dto.EmailDto;
+import com.common_library.entity.Account;
+import com.common_library.entity.Goal;
+import com.common_library.entity.Transaction;
+import com.common_library.entity.User;
 import com.google.genai.Client;
 import com.google.genai.types.GenerateContentResponse;
 import com.report_service.FeignClient.UserService;
-import com.report_service.entity.Account;
-import com.report_service.entity.Goal;
-import com.report_service.entity.Transaction;
-import com.report_service.entity.User;
 import com.report_service.kafka.ReportKafkaProducer;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -28,8 +28,8 @@ public class ReportService {
         this.reportKafkaProducer = reportKafkaProducer;
     }
 
-    //@Scheduled(cron = "0 0 9 L * ?")
-    @Scheduled(cron = "0 * * * * ?")
+    @Scheduled(cron = "0 0 9 L * ?")
+    //@Scheduled(cron = "0 * * * * ?")
     public void generateReport() {
         List<User> users = userService.allUsers();
         StringBuilder reports = new StringBuilder();
@@ -140,11 +140,7 @@ public class ReportService {
         return report.toString();
     }
 
-    private String generateSavingTips(double totalBalance,
-                                      double totalIncome,
-                                      double totalExpenses,
-                                      Map<String, Double> categoryWise,
-                                      List<Goal> goals) {
+    private String generateSavingTips(double totalBalance, double totalIncome, double totalExpenses, Map<String, Double> categoryWise, List<Goal> goals) {
 
         StringBuilder tips = new StringBuilder();
 

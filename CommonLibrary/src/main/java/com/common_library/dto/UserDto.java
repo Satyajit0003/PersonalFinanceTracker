@@ -1,4 +1,4 @@
-package com.account_service.entity;
+package com.common_library.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
-    private String userId;
+public class UserDto {
+
     private String userName;
 
     private String email;

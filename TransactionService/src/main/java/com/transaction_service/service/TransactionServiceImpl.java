@@ -1,13 +1,13 @@
 package com.transaction_service.service;
 
+import com.common_library.dto.AccountDto;
+import com.common_library.dto.CategoryDto;
 import com.common_library.dto.EmailDto;
-import com.transaction_service.dto.AccountDto;
-import com.transaction_service.dto.CategoryDto;
+import com.common_library.entity.Account;
+import com.common_library.entity.Category;
+import com.common_library.entity.User;
 import com.transaction_service.dto.TransactionDto;
-import com.transaction_service.entity.Account;
-import com.transaction_service.entity.Category;
 import com.transaction_service.entity.Transaction;
-import com.transaction_service.entity.User;
 import com.transaction_service.exception.*;
 import com.transaction_service.feignService.AccountService;
 import com.transaction_service.feignService.CategoryService;

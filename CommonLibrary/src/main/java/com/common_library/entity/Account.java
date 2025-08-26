@@ -1,4 +1,4 @@
-package com.goal_service.entity;
+package com.common_library.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,4 +14,3 @@ public class Account {
     private double balance;
     private String createDate;
 }
-

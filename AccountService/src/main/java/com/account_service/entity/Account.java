@@ -1,5 +1,6 @@
 package com.account_service.entity;
 
+import com.common_library.entity.Transaction;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

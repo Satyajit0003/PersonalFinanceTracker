@@ -1,4 +1,4 @@
-package com.report_service.enums;
+package com.common_library.enums;
 
 public enum Status {
     ACTIVE,

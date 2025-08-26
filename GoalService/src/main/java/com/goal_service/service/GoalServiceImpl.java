@@ -1,11 +1,11 @@
 package com.goal_service.service;
 
+import com.common_library.dto.AccountDto;
 import com.common_library.dto.EmailDto;
-import com.goal_service.dto.AccountDto;
+import com.common_library.entity.Account;
+import com.common_library.entity.User;
 import com.goal_service.dto.GoalDto;
-import com.goal_service.entity.Account;
 import com.goal_service.entity.Goal;
-import com.goal_service.entity.User;
 import com.goal_service.enums.Status;
 import com.goal_service.exception.*;
 import com.goal_service.feignService.AccountService;

@@ -1,5 +1,8 @@
 package com.user_service.entity;
 
+import com.common_library.entity.Account;
+import com.common_library.entity.Goal;
+import com.common_library.entity.Transaction;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

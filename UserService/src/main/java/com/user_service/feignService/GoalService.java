@@ -1,6 +1,6 @@
 package com.user_service.feignService;
 
-import com.user_service.entity.Goal;
+import com.common_library.entity.Goal;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

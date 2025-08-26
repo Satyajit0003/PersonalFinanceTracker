@@ -1,7 +1,7 @@
 package com.transaction_service.feignService;
 
-import com.transaction_service.dto.AccountDto;
-import com.transaction_service.entity.Account;
+import com.common_library.dto.AccountDto;
+import com.common_library.entity.Account;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

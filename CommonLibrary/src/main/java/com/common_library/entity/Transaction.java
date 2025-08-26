@@ -1,4 +1,4 @@
-package com.report_service.entity;
+package com.common_library.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

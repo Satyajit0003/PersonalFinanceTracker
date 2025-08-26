@@ -1,6 +1,6 @@
 package com.account_service.feignService;
 
-import com.account_service.entity.Transaction;
+import com.common_library.entity.Transaction;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
