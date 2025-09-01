@@ -12,7 +12,6 @@ public class Transaction {
     private String transactionId;
     private String userId;
     private String accountId;
-    private String transactionType;
     private double amount;
     private String category;
     private String description;

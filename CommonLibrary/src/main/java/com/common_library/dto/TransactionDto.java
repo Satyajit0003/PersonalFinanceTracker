@@ -1,5 +1,6 @@
 package com.common_library.dto;
 
+import com.common_library.enums.TransactionStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,9 +11,9 @@ import lombok.NoArgsConstructor;
 public class TransactionDto {
     private String userId;
     private String accountId;
-    private String type;
     private double amount;
     private String category;
     private String description;
+    private TransactionStatus status;
 }
 

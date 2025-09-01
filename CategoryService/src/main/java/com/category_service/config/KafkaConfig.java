@@ -1,4 +1,4 @@
-package com.transaction_service.config;
+package com.category_service.config;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.context.annotation.Bean;
@@ -9,12 +9,12 @@ import org.springframework.kafka.config.TopicBuilder;
 public class KafkaConfig {
 
     @Bean
-    public NewTopic limitTopic() {
-        return TopicBuilder.name("limit-notifications").build();
+    public NewTopic categoryLimitUpdateTopic() {
+        return TopicBuilder.name("category-update-success-event").build();
     }
 
     @Bean
-    public NewTopic transactionTopic() {
-        return TopicBuilder.name("transaction-event").build();
+    public NewTopic categoryLimitUpdateFailTopic() {
+        return TopicBuilder.name("category-update-fail-event").build();
     }
 }

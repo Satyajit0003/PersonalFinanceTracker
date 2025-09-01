@@ -1,5 +1,6 @@
 package com.transaction_service.entity;
 
+import com.transaction_service.enums.TransactionStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,8 +20,7 @@ public class Transaction {
     private String userId;
     @NonNull
     private String accountId;
-    @NonNull
-    private String transactionType;
+    private TransactionStatus transactionStatus;
     private double amount;
     @NonNull
     private String category;

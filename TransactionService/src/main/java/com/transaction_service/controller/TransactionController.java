@@ -24,12 +24,6 @@ public class TransactionController {
         return ResponseEntity.ok(transaction);
     }
 
-    @PutMapping("/update-transaction/{transactionId}")
-    public ResponseEntity<Transaction> updateTransaction(@RequestBody TransactionDto transactionDto, @PathVariable String transactionId) {
-        Transaction updatedTransaction = transactionService.updateTransaction(transactionDto, transactionId);
-        return ResponseEntity.ok(updatedTransaction);
-    }
-
     @DeleteMapping("/delete-transaction/{transactionId}")
     public ResponseEntity<String> deleteTransaction(@PathVariable String transactionId) {
         transactionService.deleteTransaction(transactionId);
@@ -57,12 +51,6 @@ public class TransactionController {
     @GetMapping("/transactions-by-accountId/{accountId}")
     public ResponseEntity<List<Transaction>> getTransactionsByAccountId(@PathVariable String accountId) {
         List<Transaction> transactions = transactionService.getTransactionsByAccountId(accountId);
-        return ResponseEntity.ok(transactions);
-    }
-
-    @GetMapping("/transactions-by-type/{userId}/{transactionType}")
-    public ResponseEntity<List<Transaction>> getTransactionsByType(@PathVariable String userId,@PathVariable String transactionType) {
-        List<Transaction> transactions = transactionService.getTransactionsByType(userId, transactionType);
         return ResponseEntity.ok(transactions);
     }
 

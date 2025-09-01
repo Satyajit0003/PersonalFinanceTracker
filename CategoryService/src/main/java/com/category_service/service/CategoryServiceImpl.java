@@ -2,6 +2,7 @@ package com.category_service.service;
 
 import com.category_service.dto.CategoryDto;
 import com.category_service.entity.Category;
+import com.category_service.exception.AmountNotSufficientException;
 import com.category_service.exception.CategoryAlreadyExistsException;
 import com.category_service.exception.CategoryNotFoundException;
 import com.category_service.repository.CategoryRepository;
@@ -61,5 +62,22 @@ public class CategoryServiceImpl implements CategoryService{
     @Override
     public Category getCategory(String userId, String categoryName) {
         return categoryRepository.findByUserIdAndCategoryName(userId, categoryName);
+    }
+
+    @Override
+    public void categoryLimitUpdate(String categoryId, double amount) {
+        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new CategoryNotFoundException("Category not found with id: " + categoryId));
+        if(category.getLimitAmount() < amount) {
+            throw new AmountNotSufficientException("Insufficient category limit");
+        }
+        category.setLimitAmount(category.getLimitAmount() - amount);
+        categoryRepository.save(category);
+    }
+
+    @Override
+    public void categoryLimitUpdateFail(String categoryId, double amount) {
+        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new CategoryNotFoundException("Category not found with id: " + categoryId));
+        category.setLimitAmount(category.getLimitAmount() + amount);
+        categoryRepository.save(category);
     }
 }

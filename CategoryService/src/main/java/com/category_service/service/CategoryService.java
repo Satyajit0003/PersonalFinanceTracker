@@ -19,4 +19,8 @@ public interface CategoryService {
 
     Category getCategory(String userId, String categoryName);
 
+    void categoryLimitUpdate(String categoryId, double amount);
+
+    void categoryLimitUpdateFail(String categoryId, double amount);
+
 }

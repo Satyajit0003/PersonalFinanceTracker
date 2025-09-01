@@ -10,8 +10,27 @@ public class KafkaConfig {
 
     @Bean
     public NewTopic newTopic() {
-        return TopicBuilder
-                .name("account-notifications")
-                .build();
+        return TopicBuilder.name("account-notifications").build();
     }
+
+    @Bean
+    public NewTopic accountDebitTopic() {
+        return TopicBuilder.name("account-debit-success-event").build();
+    }
+
+    @Bean
+    public NewTopic accountCreditTopic() {
+        return TopicBuilder.name("account-debit-fail-event").build();
+    }
+
+    @Bean
+    public NewTopic categoryTopic() {
+        return TopicBuilder.name("category-fail-event").build();
+    }
+
+    @Bean
+    public NewTopic transactionTopic() {
+        return TopicBuilder.name("transaction-complete-event").build();
+    }
+
 }

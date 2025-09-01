@@ -20,4 +20,8 @@ public interface AccountService {
     Account updateAccount(AccountDto accountDto, String accountId);
 
     void deleteAccount(String accountId);
+
+    void moneyCredit(String accountId, double amount);
+
+    void moneyDebit(String accountId, double amount);
 }

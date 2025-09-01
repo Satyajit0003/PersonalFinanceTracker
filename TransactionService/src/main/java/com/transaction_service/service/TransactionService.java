@@ -2,6 +2,7 @@ package com.transaction_service.service;
 
 import com.transaction_service.dto.TransactionDto;
 import com.transaction_service.entity.Transaction;
+import com.transaction_service.enums.TransactionStatus;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public interface TransactionService {
 
     Transaction createTransaction(TransactionDto transactionDto);
 
-    Transaction updateTransaction(TransactionDto transactionDto, String transactionId);
+    void updateTransactionStatus(String transactionId, TransactionStatus status);
 
     void deleteTransaction(String transactionId);
 
@@ -25,6 +26,5 @@ public interface TransactionService {
 
     List<Transaction> getTransactionsByCategory(String userId,String category);
 
-    List<Transaction> getTransactionsByType(String userId, String type);
 
 }

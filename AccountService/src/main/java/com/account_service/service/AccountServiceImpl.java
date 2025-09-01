@@ -3,6 +3,7 @@ package com.account_service.service;
 import com.account_service.dto.AccountDto;
 import com.account_service.entity.Account;
 import com.account_service.exception.AccountNotFoundException;
+import com.account_service.exception.NotSufficeintMoneyException;
 import com.account_service.exception.TransactionNotFoundException;
 import com.account_service.exception.UserNotFoundException;
 import com.account_service.feignService.TransactionService;
@@ -86,5 +87,22 @@ public class AccountServiceImpl implements AccountService{
     public void deleteAccount(String accountId) {
         Account account = accountRepository.findById(accountId).orElseThrow(() -> new AccountNotFoundException("Account not found with id: " + accountId));
         accountRepository.delete(account);
+    }
+
+    @Override
+    public void moneyCredit(String accountId, double amount) {
+        Account account = accountRepository.findById(accountId).orElseThrow(() -> new AccountNotFoundException("Account not found with id: " + accountId));
+        account.setBalance(account.getBalance() + amount);
+        accountRepository.save(account);
+    }
+
+    @Override
+    public void moneyDebit(String accountId, double amount) {
+        Account account = accountRepository.findById(accountId).orElseThrow(() -> new AccountNotFoundException("Account not found with id: " + accountId));
+        if(account.getBalance() < amount){
+            throw new NotSufficeintMoneyException("Insufficient balance in account with id: " + accountId);
+        }
+        account.setBalance(account.getBalance() - amount);
+        accountRepository.save(account);
     }
 }
