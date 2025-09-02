@@ -22,7 +22,6 @@ public class Transaction {
     private String accountId;
     private TransactionStatus transactionStatus;
     private double amount;
-    @NonNull
     private String category;
     @NonNull
     private String description;

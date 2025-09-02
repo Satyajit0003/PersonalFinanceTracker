@@ -55,9 +55,9 @@ public class GoalController {
     }
 
     @GetMapping("/add-money/{goalId}/{accountId}/{amount}")
-    public ResponseEntity<Goal> addMoneyToGoal(@PathVariable String goalId, @PathVariable String accountId, @PathVariable double amount) {
-        Goal updatedGoal = goalService.addMoney(goalId, accountId, amount);
-        return ResponseEntity.ok(updatedGoal);
+    public ResponseEntity<String> addMoneyToGoal(@PathVariable String goalId, @PathVariable String accountId, @PathVariable double amount) {
+        String response = goalService.addMoney(goalId, accountId, amount);
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/cancel-goal/{goalId}/{accountId}")

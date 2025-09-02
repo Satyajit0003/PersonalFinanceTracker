@@ -18,19 +18,14 @@ public class KafkaConfig {
         return TopicBuilder.name("account-debit-success-event").build();
     }
 
-    @Bean
-    public NewTopic accountCreditTopic() {
-        return TopicBuilder.name("account-debit-fail-event").build();
-    }
-
-    @Bean
-    public NewTopic categoryTopic() {
-        return TopicBuilder.name("category-fail-event").build();
-    }
 
     @Bean
     public NewTopic transactionTopic() {
         return TopicBuilder.name("transaction-complete-event").build();
     }
 
+    @Bean
+    public NewTopic goalTopic() {
+        return TopicBuilder.name("money-reduce-complete-event").build();
+    }
 }

@@ -11,7 +11,7 @@ import com.transaction_service.exception.*;
 import com.transaction_service.feignService.UserService;
 import com.transaction_service.kafka.LimitKafkaProducer;
 import com.transaction_service.repository.TransactionRepository;
-import com.transaction_service.sagaEvents.KafkaProducer;
+import com.transaction_service.sagaEvents.SagaTransactionStartAccountEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,16 +26,14 @@ public class TransactionServiceImpl implements TransactionService{
     private final TransactionRepository transactionRepository;
     private final UserService userService;
     private final LimitKafkaProducer limitKafkaProducer;
-    private final KafkaProducer kafkaProducer;
+    private final SagaTransactionStartAccountEvent sagaTransactionStartAccountEvent;
 
-    public TransactionServiceImpl(TransactionRepository transactionRepository, UserService userService, LimitKafkaProducer limitKafkaProducer,KafkaProducer kafkaProducer) {
+    public TransactionServiceImpl(TransactionRepository transactionRepository, UserService userService, LimitKafkaProducer limitKafkaProducer, SagaTransactionStartAccountEvent sagaTransactionStartAccountEvent) {
         this.transactionRepository = transactionRepository;
         this.userService = userService;
         this.limitKafkaProducer = limitKafkaProducer;
-        this.kafkaProducer = kafkaProducer;
+        this.sagaTransactionStartAccountEvent = sagaTransactionStartAccountEvent;
     }
-
-    private static String finalStatus = "";
 
     @Override
     @Transactional
@@ -54,16 +52,17 @@ public class TransactionServiceImpl implements TransactionService{
 
         TransactionEvent transactionEvent = getTransactionEvent(saved);
         log.info("Transaction kafka producer called");
-        kafkaProducer.startTransaction(transactionEvent);
+        sagaTransactionStartAccountEvent.startTransaction(transactionEvent);
 
         User user = userService.singleUser(transaction.getUserId()).orElseThrow(() -> new UserNotFoundException("User not found with id: " + transaction.getUserId()));
         EmailDto event = new EmailDto(
                 user.getEmail(),
-                "Limit Exceeded Notification" ,
-                "Dear " + user.getUserName() + ",\n\nYou have exceeded your limit for the category: " + transactionDto.getCategory() + " If you need more amount, please update your limit in the Category Service.\n\nBest regards,\nTransaction Service"
+                "Transaction Initiated",
+                "Your transaction with ID: " + saved.getTransactionId() + " is initiated and is currently in process."
         );
         limitKafkaProducer.produceLimitNotification(event);
-        return "Transaction is in process with ID: " + saved.getTransactionId() + " and final status: " + finalStatus;
+
+        return "Transaction is in process with ID: " + saved.getTransactionId();
     }
 
     public TransactionEvent getTransactionEvent(Transaction saved) {
@@ -84,7 +83,6 @@ public class TransactionServiceImpl implements TransactionService{
         Transaction transaction = transactionRepository.findById(transactionId)
                 .orElseThrow(() -> new RuntimeException("Transaction not found: " + transactionId));
         transaction.setTransactionStatus(status);
-        finalStatus = status.toString();
         transactionRepository.save(transaction);
         log.info("Transaction {} status updated to {}", transactionId, status);
     }

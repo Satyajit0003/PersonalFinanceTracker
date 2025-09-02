@@ -1,9 +1,9 @@
 package com.goal_service.service;
 
 import com.common_library.dto.AccountDto;
-import com.common_library.dto.EmailDto;
 import com.common_library.entity.Account;
-import com.common_library.entity.User;
+import com.common_library.enums.TransactionStatus;
+import com.common_library.event.GoalEvent;
 import com.goal_service.dto.GoalDto;
 import com.goal_service.entity.Goal;
 import com.goal_service.enums.Status;
@@ -12,9 +12,12 @@ import com.goal_service.feignService.AccountService;
 import com.goal_service.feignService.UserService;
 import com.goal_service.kafka.GoalKafkaProducer;
 import com.goal_service.repository.GoalRepository;
+import com.goal_service.sagaEvents.SagaGoalProducerEvent;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class GoalServiceImpl implements GoalService {
@@ -23,12 +26,15 @@ public class GoalServiceImpl implements GoalService {
     private final AccountService accountService;
     private final GoalKafkaProducer goalKafkaProducer;
     private final UserService userService;
+    private final SagaGoalProducerEvent sagaGoalProducerEvent;
 
-    public GoalServiceImpl(GoalRepository goalRepository, AccountService accountService, GoalKafkaProducer goalKafkaProducer, UserService userService) {
+
+    public GoalServiceImpl(GoalRepository goalRepository, AccountService accountService, GoalKafkaProducer goalKafkaProducer, UserService userService, SagaGoalProducerEvent sagaGoalProducerEvent) {
         this.goalRepository = goalRepository;
         this.accountService = accountService;
         this.goalKafkaProducer = goalKafkaProducer;
         this.userService = userService;
+        this.sagaGoalProducerEvent = sagaGoalProducerEvent;
     }
 
     @Override
@@ -88,30 +94,23 @@ public class GoalServiceImpl implements GoalService {
     }
 
     @Override
-    public Goal addMoney(String goalId,String accountId, Double money) {
+    @Transactional
+    public String addMoney(String goalId,String accountId, Double money) {
         Goal goal = goalRepository.findById(goalId).orElseThrow(() -> new GoalNotFoundException("Goal not found with id: " + goalId));
         if(goal.getStatus().equals(Status.COMPLETED) || goal.getStatus().equals(Status.CANCELLED)){
             throw new MoneyNotSentException("Cannot add money to a completed or cancelled goal: " + goalId);
         }
-        Account account = accountService.getAccountById(accountId).orElseThrow(() -> new AccountNotFoundException("Account not found with id: " + accountId));
-        if(account.getBalance() < money){
-            throw new InsufficientBalanceExecption("Insufficient balance in account: " + accountId);
-        }
-        account.setBalance(account.getBalance() - money);
-        goal.setCurrentAmount(goal.getCurrentAmount() + money);
-        if(goal.getCurrentAmount() == goal.getTargetAmount()) {
-            goal.setStatus(Status.COMPLETED);
-            User user = userService.singleUser(account.getUserId()).orElseThrow(() -> new UserNotFoundException("User not found with id: " + account.getUserId()));
-            EmailDto event = new EmailDto(
-                    user.getEmail(),
-                    "Goal Achieved: " + goal.getGoalName(),
-                    "Congratulations " + user.getUserName() + "! You have successfully achieved your goal: " + goal.getGoalName() + " by saving a total of $" + goal.getTargetAmount() + ". Keep up the great work!"
-            );
-            goalKafkaProducer.produceGoalNotification(event);
-        }
-        convertAccountEntityToDto(account);
-        goalRepository.save(goal);
-        return goal;
+
+        GoalEvent event = new GoalEvent();
+        event.setTransactionId("1234");
+        event.setAccountId(accountId);
+        event.setAmount(money);
+        event.setGoalId(goalId);
+        event.setUserId(goal.getUserId());
+        event.setDescription("Money added to goal: " + goal.getGoalName());
+        event.setStatus(TransactionStatus.PENDING);
+        sagaGoalProducerEvent.addMoneyEvent(event);
+        return "Your transaction is being processed. You will receive a notification once it is completed.";
     }
 
     @Override

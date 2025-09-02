@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class KafkaProducer {
+public class SagaTransactionStartAccountEvent {
 
     private final KafkaTemplate<String, TransactionEvent> kafkaTemplate;
 
-    public KafkaProducer(KafkaTemplate<String, TransactionEvent> kafkaTemplate) {
+    public SagaTransactionStartAccountEvent(KafkaTemplate<String, TransactionEvent> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 

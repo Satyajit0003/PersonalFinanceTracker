@@ -17,7 +17,7 @@ public interface GoalService {
 
     Goal cancelGoal(String goalId, String accountId);
 
-    Goal addMoney(String goalId,String accountId, Double money);
+    String addMoney(String goalId,String accountId, Double money);
 
     List<Goal> getAllGoals();
 

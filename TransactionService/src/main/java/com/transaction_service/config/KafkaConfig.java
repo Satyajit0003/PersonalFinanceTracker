@@ -17,4 +17,14 @@ public class KafkaConfig {
     public NewTopic transactionTopic() {
         return TopicBuilder.name("transaction-event").build();
     }
+
+    @Bean
+    public NewTopic goalTopic() {
+        return TopicBuilder.name("add-money-event").build();
+    }
+
+    @Bean
+    public NewTopic goal_Topic() {
+        return TopicBuilder.name("goal-complete-event").build();
+    }
 }

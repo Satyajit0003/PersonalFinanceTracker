@@ -10,8 +10,11 @@ public class KafkaConfig {
 
     @Bean
     public NewTopic newTopic() {
-        return TopicBuilder
-                .name("goal-notifications")
-                .build();
+        return TopicBuilder.name("goal-notifications").build();
+    }
+
+    @Bean
+    public NewTopic categoryTopic() {
+        return TopicBuilder.name("goal-event").build();
     }
 }
