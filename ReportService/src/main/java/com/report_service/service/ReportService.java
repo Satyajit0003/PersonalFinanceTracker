@@ -94,16 +94,10 @@ public class ReportService {
 
         if (user.getTransactions() != null && !user.getTransactions().isEmpty()) {
             for (Transaction tx : user.getTransactions()) {
-                if ("EXPENSE".equalsIgnoreCase(tx.getTransactionType())) {
-                    totalExpenses += tx.getAmount();
-                } else if ("INCOME".equalsIgnoreCase(tx.getTransactionType())) {
-                    totalIncome += tx.getAmount();
-                }
 
                 categoryWise.merge(tx.getCategory(), tx.getAmount(), Double::sum);
 
                 report.append("[").append(tx.getDate()).append("] ")
-                        .append(tx.getTransactionType()).append(" - ")
                         .append(tx.getAmount()).append(" (")
                         .append(tx.getCategory()).append(") ")
                         .append("Description: ").append(tx.getDescription())

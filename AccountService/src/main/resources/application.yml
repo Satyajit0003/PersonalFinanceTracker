@@ -4,6 +4,7 @@ server:
 spring:
   application:
     name: ACCOUNT-SERVICE
+
   data:
     mongodb:
       host: localhost
@@ -15,22 +16,19 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
     consumer:
-      bootstrap-servers: localhost:9092
+      group-id: group-1
+      auto-offset-reset: earliest
+      enable-auto-commit: false
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
-      auto-offset-reset: latest
-      enable-auto-commit: false
-      group-id: group-1
       properties:
         spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
         spring.json.trusted.packages: "*"
+
     listener:
       ack-mode: manual
 
   config:
-    import: configserver:http://localhost:8086
-
-
-
-
+    import: optional:configserver:http://localhost:8086

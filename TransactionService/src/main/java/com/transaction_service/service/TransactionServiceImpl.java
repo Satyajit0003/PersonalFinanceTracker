@@ -1,45 +1,45 @@
 package com.transaction_service.service;
 
-import com.common_library.dto.AccountDto;
-import com.common_library.dto.CategoryDto;
-import com.common_library.entity.Account;
-import com.common_library.entity.Category;
+import com.common_library.dto.EmailDto;
+import com.common_library.entity.User;
+
+import com.common_library.enums.TransactionStatus;
+import com.common_library.event.TransactionEvent;
 import com.transaction_service.dto.TransactionDto;
 import com.transaction_service.entity.Transaction;
-import com.transaction_service.enums.TransactionStatus;
 import com.transaction_service.exception.*;
-import com.transaction_service.feignService.AccountService;
-import com.transaction_service.feignService.CategoryService;
 import com.transaction_service.feignService.UserService;
 import com.transaction_service.kafka.LimitKafkaProducer;
-import com.transaction_service.sagaEvents.HandleTransaction;
 import com.transaction_service.repository.TransactionRepository;
+import com.transaction_service.sagaEvents.KafkaProducer;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Service
+@Slf4j
 public class TransactionServiceImpl implements TransactionService{
 
     private final TransactionRepository transactionRepository;
-    private final AccountService accountService;
-    private final CategoryService categoryService;
     private final UserService userService;
     private final LimitKafkaProducer limitKafkaProducer;
-    private final HandleTransaction transactionKafkaProducer;
+    private final KafkaProducer kafkaProducer;
 
-    public TransactionServiceImpl(TransactionRepository transactionRepository, AccountService accountService, CategoryService categoryService, UserService userService, LimitKafkaProducer limitKafkaProducer, HandleTransaction transactionKafkaProducer) {
+    public TransactionServiceImpl(TransactionRepository transactionRepository, UserService userService, LimitKafkaProducer limitKafkaProducer,KafkaProducer kafkaProducer) {
         this.transactionRepository = transactionRepository;
-        this.accountService = accountService;
-        this.categoryService = categoryService;
         this.userService = userService;
         this.limitKafkaProducer = limitKafkaProducer;
-        this.transactionKafkaProducer = transactionKafkaProducer;
+        this.kafkaProducer = kafkaProducer;
     }
 
+    private static String finalStatus = "";
+
     @Override
-    public Transaction createTransaction(TransactionDto transactionDto) {
+    @Transactional
+    public String createTransaction(TransactionDto transactionDto) {
         Transaction transaction = new Transaction();
         transaction.setAccountId(transactionDto.getAccountId());
         transaction.setUserId(transactionDto.getUserId());
@@ -47,45 +47,52 @@ public class TransactionServiceImpl implements TransactionService{
         transaction.setCategory(transactionDto.getCategory().toUpperCase());
         transaction.setDate(LocalDate.now().toString());
         transaction.setDescription(transactionDto.getDescription());
+        transaction.setTransactionStatus(TransactionStatus.PENDING);
+
         Transaction saved = transactionRepository.save(transaction);
-        transactionDto.setId(saved.getTransactionId());
-        transactionDto.setStatus(TransactionStatus.PENDING);
-        transactionKafkaProducer.startTransaction(transactionDto);
-        return saved;
+        log.info("Transaction created successfully {}", saved);
+
+        TransactionEvent transactionEvent = getTransactionEvent(saved);
+        log.info("Transaction kafka producer called");
+        kafkaProducer.startTransaction(transactionEvent);
+
+        User user = userService.singleUser(transaction.getUserId()).orElseThrow(() -> new UserNotFoundException("User not found with id: " + transaction.getUserId()));
+        EmailDto event = new EmailDto(
+                user.getEmail(),
+                "Limit Exceeded Notification" ,
+                "Dear " + user.getUserName() + ",\n\nYou have exceeded your limit for the category: " + transactionDto.getCategory() + " If you need more amount, please update your limit in the Category Service.\n\nBest regards,\nTransaction Service"
+        );
+        limitKafkaProducer.produceLimitNotification(event);
+        return "Transaction is in process with ID: " + saved.getTransactionId() + " and final status: " + finalStatus;
     }
 
-    public void convertAccountEntityToDto(Account account) {
-        AccountDto accountDto = new AccountDto();
-        accountDto.setUserId(account.getUserId());
-        accountDto.setAccountType(account.getAccountType());
-        accountDto.setBalance(account.getBalance());
-        accountService.updateAccount(accountDto, account.getAccountId());
+    public TransactionEvent getTransactionEvent(Transaction saved) {
+        return TransactionEvent.builder()
+                .transactionId(saved.getTransactionId())
+                .accountId(saved.getAccountId())
+                .userId(saved.getUserId())
+                .amount(saved.getAmount())
+                .category(saved.getCategory())
+                .description(saved.getDescription())
+                .status(TransactionStatus.PENDING)
+                .build();
     }
 
-    public void convertCategoryEntityToDto(Category category) {
-        CategoryDto categoryDto = new CategoryDto();
-        categoryDto.setUserId(category.getUserId());
-        categoryDto.setCategory(category.getCategoryName());
-        categoryDto.setLimitAmount(category.getLimitAmount());
-        categoryService.updateCategory(categoryDto, category.getId());
-    }
 
-    @Override
+    @Transactional
     public void updateTransactionStatus(String transactionId, TransactionStatus status) {
-        Transaction oldTransaction = transactionRepository.findById(transactionId).orElseThrow(() -> new TransactionNotFoundException("Transaction not found with id: " + transactionId));
-        oldTransaction.setTransactionStatus(status);
-        transactionRepository.save(oldTransaction);
+        Transaction transaction = transactionRepository.findById(transactionId)
+                .orElseThrow(() -> new RuntimeException("Transaction not found: " + transactionId));
+        transaction.setTransactionStatus(status);
+        finalStatus = status.toString();
+        transactionRepository.save(transaction);
+        log.info("Transaction {} status updated to {}", transactionId, status);
     }
+
 
     @Override
     public void deleteTransaction(String transactionId) {
         Transaction transaction = transactionRepository.findById(transactionId).orElseThrow(() -> new TransactionNotFoundException("Transaction not found with id: " + transactionId));
-        Account account = accountService.singleAccount(transaction.getAccountId()).orElseThrow(() -> new AccountNotFoundException("Account not found with id: " + transaction.getAccountId()));
-        Category category = categoryService.getCategoryByUser(account.getUserId(), transaction.getCategory()).orElseThrow(() -> new CategoryNotFoundException("Category not found for user: " + account.getUserId() + " and category: " + transaction.getCategory()));
-        account.setBalance(account.getBalance() + transaction.getAmount());
-        category.setLimitAmount(category.getLimitAmount() + transaction.getAmount());
-        convertAccountEntityToDto(account);
-        convertCategoryEntityToDto(category);
         transactionRepository.delete(transaction);
     }
 

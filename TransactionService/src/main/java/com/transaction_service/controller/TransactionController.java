@@ -19,9 +19,9 @@ public class TransactionController {
     }
 
     @PostMapping("/create-transaction")
-    public ResponseEntity<Transaction> createTransaction(@RequestBody TransactionDto transactionDto) {
-        Transaction transaction = transactionService.createTransaction(transactionDto);
-        return ResponseEntity.ok(transaction);
+    public ResponseEntity<String> createTransaction(@RequestBody TransactionDto transactionDto) {
+        String response = transactionService.createTransaction(transactionDto);
+        return ResponseEntity.ok(response);
     }
 
     @DeleteMapping("/delete-transaction/{transactionId}")

@@ -1,6 +1,6 @@
 package com.transaction_service.entity;
 
-import com.transaction_service.enums.TransactionStatus;
+import com.common_library.enums.TransactionStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
