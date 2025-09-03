@@ -11,6 +11,9 @@ import com.user_service.feignService.AccountService;
 import com.user_service.feignService.GoalService;
 import com.user_service.feignService.TransactionService;
 import com.user_service.repository.UserRepository;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,6 +34,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    @CachePut(value = "user", key = "#result.userId")
     public User createUser(UserDto userDto, String role) {
         if(userRepository.existsByEmail(userDto.getEmail())){
             throw new UserAlreadyExistsException("User with email " + userDto.getEmail() + " already exists.");
@@ -44,6 +48,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    @Cacheable(value = "user", key = "#userId")
     public User getUserById(String userId) {
         List<Account> accounts = accountService.getAccountsByUserId(userId).orElseThrow(() -> new AccountNotFoundException("Accounts for user with ID " + userId + " not found."));
         List<Transaction> transactions = transactionService.getTransactionsByUserId(userId).orElseThrow(() -> new TransactionNotFoundException("Transactions for user with ID " + userId + " not found."));
@@ -56,16 +61,19 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    @Cacheable(value = "singleUser", key = "#userId")
     public User getUser(String userId) {
         return userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User with ID " + userId + " not found."));
     }
 
     @Override
+    @Cacheable(value = "allUsers")
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
     @Override
+    @CachePut(value = "user", key = "#userId")
     public User updateUser(UserDto userDto, String userId) {
         User oldUser = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User with ID " + userId + " not found."));
         oldUser.setUserName(userDto.getUserName());
@@ -75,6 +83,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    @CacheEvict(value = "user", key = "#userId")
     public void deleteUser(String userId) {
         User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User with ID " + userId + " not found."));
         userRepository.delete(user);

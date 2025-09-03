@@ -9,35 +9,32 @@ import com.goal_service.entity.Goal;
 import com.goal_service.enums.Status;
 import com.goal_service.exception.*;
 import com.goal_service.feignService.AccountService;
-import com.goal_service.feignService.UserService;
-import com.goal_service.kafka.GoalKafkaProducer;
 import com.goal_service.repository.GoalRepository;
 import com.goal_service.sagaEvents.SagaGoalProducerEvent;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Random;
 
 @Service
 public class GoalServiceImpl implements GoalService {
 
     private final GoalRepository goalRepository;
     private final AccountService accountService;
-    private final GoalKafkaProducer goalKafkaProducer;
-    private final UserService userService;
     private final SagaGoalProducerEvent sagaGoalProducerEvent;
 
 
-    public GoalServiceImpl(GoalRepository goalRepository, AccountService accountService, GoalKafkaProducer goalKafkaProducer, UserService userService, SagaGoalProducerEvent sagaGoalProducerEvent) {
+    public GoalServiceImpl(GoalRepository goalRepository, AccountService accountService, SagaGoalProducerEvent sagaGoalProducerEvent) {
         this.goalRepository = goalRepository;
         this.accountService = accountService;
-        this.goalKafkaProducer = goalKafkaProducer;
-        this.userService = userService;
         this.sagaGoalProducerEvent = sagaGoalProducerEvent;
     }
 
     @Override
+    @CachePut(value = "goal", key = "#result.goalId")
     public Goal createGoal(GoalDto goalDto) {
         Goal goal = new Goal();
         goal.setUserId(goalDto.getUserId());
@@ -50,11 +47,13 @@ public class GoalServiceImpl implements GoalService {
     }
 
     @Override
+    @Cacheable(value = "goal", key = "#goalId")
     public Goal getGoalById(String goalId) {
         return goalRepository.findById(goalId).orElseThrow(() -> new GoalNotFoundException("Goal not found with id: " + goalId));
     }
 
     @Override
+    @CachePut(value = "goal", key = "#goalId")
     public Goal updateGoal(GoalDto goalDto, String goalId) {
         Goal goal = goalRepository.findById(goalId).orElseThrow(() -> new GoalNotFoundException("Goal not found with id: " + goalId));
         goal.setGoalName(goalDto.getGoalName());
@@ -66,6 +65,7 @@ public class GoalServiceImpl implements GoalService {
     }
 
     @Override
+    @CacheEvict(value = "goal", key = "#goalId")
     public void deleteGoalById(String goalId) {
         Goal goal = goalRepository.findById(goalId).orElseThrow(() -> new GoalNotFoundException("Goal not found with id: " + goalId));
         if(goal.getCurrentAmount() > 0.0) {
@@ -114,11 +114,13 @@ public class GoalServiceImpl implements GoalService {
     }
 
     @Override
+    @Cacheable(value = "allGoals")
     public List<Goal> getAllGoals() {
         return goalRepository.findAll();
     }
 
     @Override
+    @CachePut("allGoalsByUserId")
     public List<Goal> getAllGoalsByUserId(String userId) {
         return goalRepository.findByUserId(userId);
     }

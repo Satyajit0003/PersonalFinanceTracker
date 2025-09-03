@@ -6,6 +6,9 @@ import com.category_service.exception.AmountNotSufficientException;
 import com.category_service.exception.CategoryAlreadyExistsException;
 import com.category_service.exception.CategoryNotFoundException;
 import com.category_service.repository.CategoryRepository;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +23,7 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
+    @CachePut(value = "category", key = "#result.id")
     public Category createCategory(CategoryDto categoryDto) {
         Category categoryOptional = categoryRepository.findByUserIdAndCategoryName(categoryDto.getUserId(), categoryDto.getCategory());
         if(categoryOptional != null) {
@@ -34,11 +38,13 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
+    @Cacheable(value = "category", key = "#categoryId")
     public Category getCategoryById(String categoryId) {
         return categoryRepository.findById(categoryId).orElseThrow(() -> new CategoryNotFoundException("Category not found with id: " + categoryId));
     }
 
     @Override
+    @CachePut(value = "category", key = "#categoryId")
     public Category updateCategory(CategoryDto categoryDto, String categoryId) {
         Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new CategoryNotFoundException("Category not found with id: " + categoryId));
         category.setUserId(categoryDto.getUserId());
@@ -49,17 +55,20 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
+    @CacheEvict(value = "category", key = "#categoryId")
     public void deleteCategory(String categoryId) {
         Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new CategoryNotFoundException("Category not found with id: " + categoryId));
         categoryRepository.delete(category);
     }
 
     @Override
+    @Cacheable(value = "allCategories")
     public List<Category> getCategories() {
         return categoryRepository.findAll();
     }
 
     @Override
+    @Cacheable(value = "categoryByUserId", key = "#userId")
     public Category getCategory(String userId, String categoryName) {
         return categoryRepository.findByUserIdAndCategoryName(userId, categoryName);
     }

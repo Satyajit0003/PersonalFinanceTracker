@@ -13,6 +13,9 @@ import com.transaction_service.kafka.LimitKafkaProducer;
 import com.transaction_service.repository.TransactionRepository;
 import com.transaction_service.sagaEvents.SagaTransactionStartAccountEvent;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -79,6 +82,7 @@ public class TransactionServiceImpl implements TransactionService{
 
 
     @Transactional
+    @CachePut(value = "transaction", key = "#transactionId")
     public void updateTransactionStatus(String transactionId, TransactionStatus status) {
         Transaction transaction = transactionRepository.findById(transactionId)
                 .orElseThrow(() -> new RuntimeException("Transaction not found: " + transactionId));
@@ -89,6 +93,7 @@ public class TransactionServiceImpl implements TransactionService{
 
 
     @Override
+    @CacheEvict(value = "transaction", key = "#transactionId")
     public void deleteTransaction(String transactionId) {
         Transaction transaction = transactionRepository.findById(transactionId).orElseThrow(() -> new TransactionNotFoundException("Transaction not found with id: " + transactionId));
         transactionRepository.delete(transaction);
@@ -96,31 +101,37 @@ public class TransactionServiceImpl implements TransactionService{
 
 
     @Override
+    @Cacheable(value = "transaction", key = "#transactionId")
     public Transaction getTransactionById(String transactionId) {
         return transactionRepository.findById(transactionId).orElseThrow(() -> new TransactionNotFoundException("Transaction not found with id: " + transactionId));
     }
 
     @Override
+    @Cacheable(value = "allTransactions")
     public List<Transaction> getAllTransactions() {
         return transactionRepository.findAll();
     }
 
     @Override
+    @Cacheable(value = "transactionsByUser", key = "#userId")
     public List<Transaction> getTransactionsByUserId(String userId) {
         return transactionRepository.findByUserId(userId);
     }
 
     @Override
+    @Cacheable(value = "transactionsByAccount", key = "#accountId")
     public List<Transaction> getTransactionsByAccountId(String accountId) {
         return transactionRepository.findByAccountId(accountId);
     }
 
     @Override
+    @Cacheable(value = "transactionsByDate", key = "#userId + '_' + #date")
     public List<Transaction> getTransactionsByDate(String userId,String date) {
         return transactionRepository.findByUserIdAndDate(userId, date);
     }
 
     @Override
+    @Cacheable(value = "transactionsByCategory", key = "#userId + '_' + #category")
     public List<Transaction> getTransactionsByCategory(String userId, String category) {
         return transactionRepository.findByUserIdAndCategory(userId, category);
     }

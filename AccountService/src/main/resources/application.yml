@@ -5,11 +5,23 @@ spring:
   application:
     name: ACCOUNT-SERVICE
 
+  cache:
+    type: redis
+  redis:
+    ttl: 300
   data:
     mongodb:
       host: localhost
       port: 27017
       database: financeDb
+    redis:
+      host:
+        redis:
+              host: redis-18289.c301.ap-south-1-1.ec2.redns.redis-cloud.com
+              port: 18289
+              password: ${REDIS-PASSWORD}
+              ssl:
+                enabled: true
 
   kafka:
     bootstrap-servers: localhost:9092

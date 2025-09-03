@@ -13,6 +13,9 @@ import com.account_service.repository.AccountRepository;
 import com.common_library.dto.EmailDto;
 import com.common_library.entity.Transaction;
 import com.common_library.entity.User;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -34,6 +37,7 @@ public class AccountServiceImpl implements AccountService{
     }
 
     @Override
+    @CachePut(value = "account", key = "#result.accountId")
     public Account createAccount(AccountDto accountDto) {
         Account account = new Account();
         account.setUserId(accountDto.getUserId());
@@ -52,11 +56,13 @@ public class AccountServiceImpl implements AccountService{
     }
 
     @Override
+    @Cacheable(value = "allAccounts")
     public List<Account> getAllAccounts() {
         return accountRepository.findAll();
     }
 
     @Override
+    @Cacheable(value = "account", key = "#accountId")
     public Account getAccountById(String accountId) {
         Account account = accountRepository.findById(accountId).orElseThrow(() -> new AccountNotFoundException("Account not found with id: " + accountId));
         List<Transaction> transactions = transactionService.getTransactionsByAccountId(account.getAccountId()).orElseThrow(() -> new TransactionNotFoundException("No transactions found for account with id: " + accountId));
@@ -65,16 +71,19 @@ public class AccountServiceImpl implements AccountService{
     }
 
     @Override
+    @Cacheable(value = "singleAccount", key = "#accountId")
     public Account getAccount(String accountId) {
         return accountRepository.findById(accountId).orElseThrow(() -> new AccountNotFoundException("Account not found with id: " + accountId));
     }
 
     @Override
+    @Cacheable(value = "accountByUserId", key = "#userId")
     public List<Account> getAccountsByUserId(String userId) {
         return accountRepository.findByUserId(userId).orElseThrow(() -> new UserNotFoundException("No accounts found for user with id: " + userId));
     }
 
     @Override
+    @CachePut(value = "account", key = "#accountId")
     public Account updateAccount(AccountDto accountDto, String accountId) {
         Account oldAccount = accountRepository.findById(accountId).orElseThrow(() -> new AccountNotFoundException("Account not found with id: " + accountId));
         oldAccount.setUserId(accountDto.getUserId());
@@ -84,6 +93,7 @@ public class AccountServiceImpl implements AccountService{
     }
 
     @Override
+    @CacheEvict(value = "account", key = "#accountId")
     public void deleteAccount(String accountId) {
         Account account = accountRepository.findById(accountId).orElseThrow(() -> new AccountNotFoundException("Account not found with id: " + accountId));
         accountRepository.delete(account);
