@@ -1,0 +1,119 @@
+05-09-2025 10:24:01.170 [main] [-] INFO  REPORT-SERVICE-c.r.ReportServiceApplication.logStarting - Starting ReportServiceApplication using Java 21.0.8 with PID 24884 (D:\Personal Finance Tracker\ReportService\target\classes started by Satya in D:\Personal Finance Tracker\UserService)
+05-09-2025 10:24:01.172 [main] [-] INFO  REPORT-SERVICE-c.r.ReportServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+05-09-2025 10:24:01.207 [main] [-] INFO  REPORT-SERVICE-o.s.c.c.c.ConfigServerConfigDataLoader.log - Fetching config from server at : http://localhost:8086
+05-09-2025 10:24:01.207 [main] [-] INFO  REPORT-SERVICE-o.s.c.c.c.ConfigServerConfigDataLoader.log - Located environment: name=REPORT-SERVICE, profiles=[default], label=null, version=c503f00a890dab213fc47001b5ee60722bc117e2, state=
+05-09-2025 10:24:02.055 [main] [-] INFO  REPORT-SERVICE-o.s.cloud.context.scope.GenericScope.setSerializationId - BeanFactory id=b5933036-5d78-37d2-9792-e8286d573ea7
+05-09-2025 10:24:02.294 [main] [-] INFO  REPORT-SERVICE-o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port 8089 (http)
+05-09-2025 10:24:02.305 [main] [-] INFO  REPORT-SERVICE-o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8089"]
+05-09-2025 10:24:02.306 [main] [-] INFO  REPORT-SERVICE-o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+05-09-2025 10:24:02.307 [main] [-] INFO  REPORT-SERVICE-o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.44]
+05-09-2025 10:24:02.354 [main] [-] INFO  REPORT-SERVICE-o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+05-09-2025 10:24:02.355 [main] [-] INFO  REPORT-SERVICE-o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1146 ms
+05-09-2025 10:24:02.601 [main] [-] INFO  REPORT-SERVICE-o.s.c.o.FeignClientFactoryBean.getTarget - For 'USER-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+05-09-2025 10:24:03.100 [main] [-] INFO  REPORT-SERVICE-o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration.restTemplateDiscoveryClientOptionalArgs - Eureka HTTP Client uses RestTemplate.
+05-09-2025 10:24:03.117 [main] [-] WARN  REPORT-SERVICE-o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger.afterPropertiesSet - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+05-09-2025 10:24:03.153 [main] [-] INFO  REPORT-SERVICE-o.a.k.c.admin.AdminClientConfig.logAll - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = REPORT-SERVICE-admin-0
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = true
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+05-09-2025 10:24:03.196 [main] [-] INFO  REPORT-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka version: 3.9.1
+05-09-2025 10:24:03.197 [main] [-] INFO  REPORT-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka commitId: f745dfdcee2b9851
+05-09-2025 10:24:03.197 [main] [-] INFO  REPORT-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka startTimeMs: 1757048043195
+05-09-2025 10:24:03.452 [kafka-admin-client-thread | REPORT-SERVICE-admin-0] [-] INFO  REPORT-SERVICE-o.a.kafka.common.utils.AppInfoParser.unregisterAppInfo - App info kafka.admin.client for REPORT-SERVICE-admin-0 unregistered
+05-09-2025 10:24:03.455 [kafka-admin-client-thread | REPORT-SERVICE-admin-0] [-] INFO  REPORT-SERVICE-o.a.kafka.common.metrics.Metrics.close - Metrics scheduler closed
+05-09-2025 10:24:03.455 [kafka-admin-client-thread | REPORT-SERVICE-admin-0] [-] INFO  REPORT-SERVICE-o.a.kafka.common.metrics.Metrics.close - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+05-09-2025 10:24:03.455 [kafka-admin-client-thread | REPORT-SERVICE-admin-0] [-] INFO  REPORT-SERVICE-o.a.kafka.common.metrics.Metrics.close - Metrics reporters closed
+05-09-2025 10:24:03.463 [main] [-] INFO  REPORT-SERVICE-o.s.c.n.eureka.InstanceInfoFactory.create - Setting initial instance status as: STARTING
+05-09-2025 10:24:03.481 [main] [-] INFO  REPORT-SERVICE-c.netflix.discovery.DiscoveryClient.<init> - Initializing Eureka in region us-east-1
+05-09-2025 10:24:03.483 [main] [-] INFO  REPORT-SERVICE-c.n.d.s.r.aws.ConfigClusterResolver.getClusterEndpoints - Resolving eureka endpoints via configuration
+05-09-2025 10:24:03.488 [main] [-] INFO  REPORT-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Disable delta property : false
+05-09-2025 10:24:03.489 [main] [-] INFO  REPORT-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Single vip registry refresh property : null
+05-09-2025 10:24:03.489 [main] [-] INFO  REPORT-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Force full registry fetch : false
+05-09-2025 10:24:03.489 [main] [-] INFO  REPORT-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Application is null : false
+05-09-2025 10:24:03.489 [main] [-] INFO  REPORT-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Registered Applications size is zero : true
+05-09-2025 10:24:03.489 [main] [-] INFO  REPORT-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Application version is -1: true
+05-09-2025 10:24:03.489 [main] [-] INFO  REPORT-SERVICE-c.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry - Getting all instance registry info from the eureka server
+05-09-2025 10:24:03.699 [main] [-] INFO  REPORT-SERVICE-c.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry - The response status is 200
+05-09-2025 10:24:03.701 [main] [-] INFO  REPORT-SERVICE-c.netflix.discovery.DiscoveryClient.initScheduledTasks - Starting heartbeat executor: renew interval is: 30
+05-09-2025 10:24:03.703 [main] [-] INFO  REPORT-SERVICE-c.n.discovery.InstanceInfoReplicator.<init> - InstanceInfoReplicator onDemand update allowed rate per min is 4
+05-09-2025 10:24:03.704 [main] [-] INFO  REPORT-SERVICE-c.netflix.discovery.DiscoveryClient.<init> - Discovery Client initialized at timestamp 1757048043704 with initial instances count: 4
+05-09-2025 10:24:03.707 [main] [-] INFO  REPORT-SERVICE-o.s.c.n.e.s.EurekaServiceRegistry.register - Registering application REPORT-SERVICE with eureka with status UP
+05-09-2025 10:24:03.708 [main] [-] INFO  REPORT-SERVICE-c.netflix.discovery.DiscoveryClient.notify - Saw local status change event StatusChangeEvent [timestamp=1757048043708, current=UP, previous=STARTING]
+05-09-2025 10:24:03.709 [main] [-] INFO  REPORT-SERVICE-o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8089"]
+05-09-2025 10:24:03.709 [DiscoveryClient-InstanceInfoReplicator-%d] [-] INFO  REPORT-SERVICE-c.netflix.discovery.DiscoveryClient.register - DiscoveryClient_REPORT-SERVICE/10.150.0.155:REPORT-SERVICE:8089: registering service...
+05-09-2025 10:24:03.726 [main] [-] INFO  REPORT-SERVICE-o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port 8089 (http) with context path '/'
+05-09-2025 10:24:03.726 [main] [-] INFO  REPORT-SERVICE-o.s.c.n.e.s.EurekaAutoServiceRegistration.onApplicationEvent - Updating port to 8089
+05-09-2025 10:24:03.744 [main] [-] INFO  REPORT-SERVICE-c.r.ReportServiceApplication.logStarted - Started ReportServiceApplication in 4.788 seconds (process running for 5.475)
+05-09-2025 10:24:03.761 [DiscoveryClient-InstanceInfoReplicator-%d] [-] INFO  REPORT-SERVICE-c.netflix.discovery.DiscoveryClient.register - DiscoveryClient_REPORT-SERVICE/10.150.0.155:REPORT-SERVICE:8089 - registration status: 204

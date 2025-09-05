@@ -14,13 +14,12 @@ spring:
       port: 27017
       database: financeDb
     redis:
-      host:
-        redis:
-          host: redis-18289.c301.ap-south-1-1.ec2.redns.redis-cloud.com
-          port: 18289
-          password: ${REDIS-PASSWORD}
-          ssl:
-            enabled: true
+      host: redis-18289.c301.ap-south-1-1.ec2.redns.redis-cloud.com
+      port: 18289
+      password: ${REDIS-PASSWORD}
+      ssl:
+        enabled: true
+
   config:
     import: configserver:http://localhost:8086
 

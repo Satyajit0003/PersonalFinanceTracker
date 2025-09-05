@@ -1,0 +1,304 @@
+05-09-2025 10:23:47.795 [restartedMain] [-] INFO  CATEGORY-SERVICE-c.c.CategoryServiceApplication.logStarting - Starting CategoryServiceApplication using Java 21.0.8 with PID 1188 (D:\Personal Finance Tracker\CategoryService\target\classes started by Satya in D:\Personal Finance Tracker\UserService)
+05-09-2025 10:23:47.797 [restartedMain] [-] INFO  CATEGORY-SERVICE-c.c.CategoryServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+05-09-2025 10:23:47.836 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.s.c.c.c.ConfigServerConfigDataLoader.logTo - Fetching config from server at : http://localhost:8086
+05-09-2025 10:23:47.836 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.s.c.c.c.ConfigServerConfigDataLoader.logTo - Located environment: name=CATEGORY-SERVICE, profiles=[default], label=null, version=c503f00a890dab213fc47001b5ee60722bc117e2, state=
+05-09-2025 10:23:47.852 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+05-09-2025 10:23:47.852 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+05-09-2025 10:23:48.486 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.s.d.r.c.RepositoryConfigurationDelegate.multipleStoresDetected - Multiple Spring Data modules found, entering strict repository configuration mode
+05-09-2025 10:23:48.486 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+05-09-2025 10:23:48.588 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 95 ms. Found 1 MongoDB repository interface.
+05-09-2025 10:23:48.599 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.s.d.r.c.RepositoryConfigurationDelegate.multipleStoresDetected - Multiple Spring Data modules found, entering strict repository configuration mode
+05-09-2025 10:23:48.601 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+05-09-2025 10:23:48.610 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.s.d.r.c.RepositoryConfigurationExtensionSupport.isStrictRepositoryCandidate - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.category_service.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+05-09-2025 10:23:48.611 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+05-09-2025 10:23:48.856 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.s.cloud.context.scope.GenericScope.setSerializationId - BeanFactory id=5b925c6a-576a-3bd2-a1cc-6c96f89c1090
+05-09-2025 10:23:49.178 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port 8084 (http)
+05-09-2025 10:23:49.190 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8084"]
+05-09-2025 10:23:49.191 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+05-09-2025 10:23:49.192 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.43]
+05-09-2025 10:23:49.244 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+05-09-2025 10:23:49.245 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1393 ms
+05-09-2025 10:23:49.411 [restartedMain] [-] INFO  CATEGORY-SERVICE-org.mongodb.driver.client.info - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "5.5.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Eclipse Adoptium/21.0.8+9-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@50c241c5, com.mongodb.Jep395RecordCodecProvider@361206b8, com.mongodb.KotlinCodecProvider@3c70502]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null, timeoutMS=null}
+05-09-2025 10:23:49.423 [cluster-ClusterId{value='68ba6cdded971d0c87dc33fd', description='null'}-localhost:27017] [-] INFO  CATEGORY-SERVICE-org.mongodb.driver.cluster.info - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, cryptd=false, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=18186400, minRoundTripTimeNanos=0}
+05-09-2025 10:23:49.507 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.s.b.d.a.OptionalLiveReloadServer.startServer - LiveReload server is running on port 35729
+05-09-2025 10:23:50.348 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration.restTemplateDiscoveryClientOptionalArgs - Eureka HTTP Client uses RestTemplate.
+05-09-2025 10:23:50.384 [restartedMain] [-] WARN  CATEGORY-SERVICE-o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger.afterPropertiesSet - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+05-09-2025 10:23:50.456 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.a.k.c.admin.AdminClientConfig.logAll - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = CATEGORY-SERVICE-admin-0
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = true
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+05-09-2025 10:23:50.524 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka version: 3.9.1
+05-09-2025 10:23:50.525 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka commitId: f745dfdcee2b9851
+05-09-2025 10:23:50.526 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka startTimeMs: 1757048030522
+05-09-2025 10:23:50.883 [kafka-admin-client-thread | CATEGORY-SERVICE-admin-0] [-] INFO  CATEGORY-SERVICE-o.a.kafka.common.utils.AppInfoParser.unregisterAppInfo - App info kafka.admin.client for CATEGORY-SERVICE-admin-0 unregistered
+05-09-2025 10:23:50.889 [kafka-admin-client-thread | CATEGORY-SERVICE-admin-0] [-] INFO  CATEGORY-SERVICE-o.a.kafka.common.metrics.Metrics.close - Metrics scheduler closed
+05-09-2025 10:23:50.890 [kafka-admin-client-thread | CATEGORY-SERVICE-admin-0] [-] INFO  CATEGORY-SERVICE-o.a.kafka.common.metrics.Metrics.close - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+05-09-2025 10:23:50.890 [kafka-admin-client-thread | CATEGORY-SERVICE-admin-0] [-] INFO  CATEGORY-SERVICE-o.a.kafka.common.metrics.Metrics.close - Metrics reporters closed
+05-09-2025 10:23:50.909 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.s.c.n.eureka.InstanceInfoFactory.create - Setting initial instance status as: STARTING
+05-09-2025 10:23:50.929 [restartedMain] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.<init> - Initializing Eureka in region us-east-1
+05-09-2025 10:23:50.931 [restartedMain] [-] INFO  CATEGORY-SERVICE-c.n.d.s.r.aws.ConfigClusterResolver.getClusterEndpoints - Resolving eureka endpoints via configuration
+05-09-2025 10:23:50.938 [restartedMain] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Disable delta property : false
+05-09-2025 10:23:50.939 [restartedMain] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Single vip registry refresh property : null
+05-09-2025 10:23:50.939 [restartedMain] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Force full registry fetch : false
+05-09-2025 10:23:50.939 [restartedMain] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Application is null : false
+05-09-2025 10:23:50.939 [restartedMain] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Registered Applications size is zero : true
+05-09-2025 10:23:50.939 [restartedMain] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Application version is -1: true
+05-09-2025 10:23:50.940 [restartedMain] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry - Getting all instance registry info from the eureka server
+05-09-2025 10:23:51.111 [restartedMain] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry - The response status is 200
+05-09-2025 10:23:51.113 [restartedMain] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.initScheduledTasks - Starting heartbeat executor: renew interval is: 30
+05-09-2025 10:23:51.120 [restartedMain] [-] INFO  CATEGORY-SERVICE-c.n.discovery.InstanceInfoReplicator.<init> - InstanceInfoReplicator onDemand update allowed rate per min is 4
+05-09-2025 10:23:51.122 [restartedMain] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.<init> - Discovery Client initialized at timestamp 1757048031121 with initial instances count: 0
+05-09-2025 10:23:51.128 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.s.c.n.e.s.EurekaServiceRegistry.register - Registering application CATEGORY-SERVICE with eureka with status UP
+05-09-2025 10:23:51.129 [restartedMain] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.notify - Saw local status change event StatusChangeEvent [timestamp=1757048031129, current=UP, previous=STARTING]
+05-09-2025 10:23:51.131 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8084"]
+05-09-2025 10:23:51.131 [DiscoveryClient-InstanceInfoReplicator-%d] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.register - DiscoveryClient_CATEGORY-SERVICE/10.150.0.155:CATEGORY-SERVICE:8084: registering service...
+05-09-2025 10:23:51.145 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port 8084 (http) with context path '/'
+05-09-2025 10:23:51.146 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.s.c.n.e.s.EurekaAutoServiceRegistration.onApplicationEvent - Updating port to 8084
+05-09-2025 10:23:51.177 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.a.k.c.consumer.ConsumerConfig.logAll - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-group-1-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = group-1
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+
+05-09-2025 10:23:51.179 [DiscoveryClient-InstanceInfoReplicator-%d] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.register - DiscoveryClient_CATEGORY-SERVICE/10.150.0.155:CATEGORY-SERVICE:8084 - registration status: 204
+05-09-2025 10:23:51.204 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.a.k.c.t.i.KafkaMetricsCollector.init - initializing Kafka metrics collector
+05-09-2025 10:23:51.263 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka version: 3.9.1
+05-09-2025 10:23:51.264 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka commitId: f745dfdcee2b9851
+05-09-2025 10:23:51.264 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka startTimeMs: 1757048031263
+05-09-2025 10:23:51.266 [restartedMain] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ClassicKafkaConsumer.subscribeInternal - [Consumer clientId=consumer-group-1-1, groupId=group-1] Subscribed to topic(s): account-debit-success-event
+05-09-2025 10:23:51.281 [restartedMain] [-] INFO  CATEGORY-SERVICE-c.c.CategoryServiceApplication.logStarted - Started CategoryServiceApplication in 5.173 seconds (process running for 5.808)
+05-09-2025 10:23:51.286 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-org.apache.kafka.clients.Metadata.update - [Consumer clientId=consumer-group-1-1, groupId=group-1] Cluster ID: zFYxuZhRRQ2fAt8b7UC71g
+05-09-2025 10:23:51.287 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.onSuccess - [Consumer clientId=consumer-group-1-1, groupId=group-1] Discovered group coordinator localhost:9092 (id: 2147483647 rack: null)
+05-09-2025 10:23:51.289 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.sendJoinGroupRequest - [Consumer clientId=consumer-group-1-1, groupId=group-1] (Re-)joining group
+05-09-2025 10:23:51.303 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.requestRejoin - [Consumer clientId=consumer-group-1-1, groupId=group-1] Request joining group due to: need to re-join with the given member-id: consumer-group-1-1-c40d6b60-05dd-49c3-bdad-857365f359c6
+05-09-2025 10:23:51.303 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.sendJoinGroupRequest - [Consumer clientId=consumer-group-1-1, groupId=group-1] (Re-)joining group
+05-09-2025 10:23:51.307 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-1, groupId=group-1] Successfully joined group with generation Generation{generationId=23, memberId='consumer-group-1-1-c40d6b60-05dd-49c3-bdad-857365f359c6', protocol='range'}
+05-09-2025 10:23:51.314 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.onLeaderElected - [Consumer clientId=consumer-group-1-1, groupId=group-1] Finished assignment for group at generation 23: {consumer-group-1-1-c40d6b60-05dd-49c3-bdad-857365f359c6=Assignment(partitions=[account-debit-success-event-0])}
+05-09-2025 10:23:51.319 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-1, groupId=group-1] Successfully synced group in generation Generation{generationId=23, memberId='consumer-group-1-1-c40d6b60-05dd-49c3-bdad-857365f359c6', protocol='range'}
+05-09-2025 10:23:51.320 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.invokeOnAssignment - [Consumer clientId=consumer-group-1-1, groupId=group-1] Notifying assignor about the new Assignment(partitions=[account-debit-success-event-0])
+05-09-2025 10:23:51.322 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerRebalanceListenerInvoker.invokePartitionsAssigned - [Consumer clientId=consumer-group-1-1, groupId=group-1] Adding newly assigned partitions: account-debit-success-event-0
+05-09-2025 10:23:51.327 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-1, groupId=group-1] Found no committed offset for partition account-debit-success-event-0
+05-09-2025 10:23:51.338 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.SubscriptionState.maybeSeekUnvalidated - [Consumer clientId=consumer-group-1-1, groupId=group-1] Resetting offset for partition account-debit-success-event-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 0 rack: null)], epoch=0}}.
+05-09-2025 10:23:51.339 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.s.k.l.KafkaMessageListenerContainer.info - group-1: partitions assigned: [account-debit-success-event-0]
+05-09-2025 10:23:54.320 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.requestRejoin - [Consumer clientId=consumer-group-1-1, groupId=group-1] Request joining group due to: group is already rebalancing
+05-09-2025 10:23:54.320 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerRebalanceListenerInvoker.invokePartitionsRevoked - [Consumer clientId=consumer-group-1-1, groupId=group-1] Revoke previously assigned partitions account-debit-success-event-0
+05-09-2025 10:23:54.321 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.s.k.l.KafkaMessageListenerContainer.info - group-1: partitions revoked: [account-debit-success-event-0]
+05-09-2025 10:23:54.321 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.sendJoinGroupRequest - [Consumer clientId=consumer-group-1-1, groupId=group-1] (Re-)joining group
+05-09-2025 10:23:54.324 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-1, groupId=group-1] Successfully joined group with generation Generation{generationId=24, memberId='consumer-group-1-1-c40d6b60-05dd-49c3-bdad-857365f359c6', protocol='range'}
+05-09-2025 10:23:54.429 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.onLeaderElected - [Consumer clientId=consumer-group-1-1, groupId=group-1] Finished assignment for group at generation 24: {consumer-group-1-1-95bb4d79-c61c-4cca-8ce2-b043aa3f828d=Assignment(partitions=[transaction-event-0]), consumer-group-1-2-e1553ed0-9fac-40bf-8746-10953d07473e=Assignment(partitions=[category-update-fail-event-0]), consumer-group-1-4-75e78623-e725-47fc-8cc3-51589f06eb10=Assignment(partitions=[category-update-success-event-0]), consumer-group-1-3-ef225f64-9a53-4d25-b23e-e9ccc45fe0a2=Assignment(partitions=[add-money-event-0]), consumer-group-1-1-c40d6b60-05dd-49c3-bdad-857365f359c6=Assignment(partitions=[account-debit-success-event-0])}
+05-09-2025 10:23:54.434 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-1, groupId=group-1] Successfully synced group in generation Generation{generationId=24, memberId='consumer-group-1-1-c40d6b60-05dd-49c3-bdad-857365f359c6', protocol='range'}
+05-09-2025 10:23:54.434 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.invokeOnAssignment - [Consumer clientId=consumer-group-1-1, groupId=group-1] Notifying assignor about the new Assignment(partitions=[account-debit-success-event-0])
+05-09-2025 10:23:54.435 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerRebalanceListenerInvoker.invokePartitionsAssigned - [Consumer clientId=consumer-group-1-1, groupId=group-1] Adding newly assigned partitions: account-debit-success-event-0
+05-09-2025 10:23:54.436 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-1, groupId=group-1] Found no committed offset for partition account-debit-success-event-0
+05-09-2025 10:23:54.437 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.SubscriptionState.maybeSeekUnvalidated - [Consumer clientId=consumer-group-1-1, groupId=group-1] Resetting offset for partition account-debit-success-event-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 0 rack: null)], epoch=0}}.
+05-09-2025 10:23:54.437 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.s.k.l.KafkaMessageListenerContainer.info - group-1: partitions assigned: [account-debit-success-event-0]
+05-09-2025 10:24:03.346 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.requestRejoin - [Consumer clientId=consumer-group-1-1, groupId=group-1] Request joining group due to: group is already rebalancing
+05-09-2025 10:24:03.346 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerRebalanceListenerInvoker.invokePartitionsRevoked - [Consumer clientId=consumer-group-1-1, groupId=group-1] Revoke previously assigned partitions account-debit-success-event-0
+05-09-2025 10:24:03.346 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.s.k.l.KafkaMessageListenerContainer.info - group-1: partitions revoked: [account-debit-success-event-0]
+05-09-2025 10:24:03.346 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.sendJoinGroupRequest - [Consumer clientId=consumer-group-1-1, groupId=group-1] (Re-)joining group
+05-09-2025 10:24:03.348 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-1, groupId=group-1] Successfully joined group with generation Generation{generationId=25, memberId='consumer-group-1-1-c40d6b60-05dd-49c3-bdad-857365f359c6', protocol='range'}
+05-09-2025 10:24:03.612 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.onLeaderElected - [Consumer clientId=consumer-group-1-1, groupId=group-1] Finished assignment for group at generation 25: {consumer-group-1-1-95bb4d79-c61c-4cca-8ce2-b043aa3f828d=Assignment(partitions=[transaction-event-0]), consumer-group-1-2-e1553ed0-9fac-40bf-8746-10953d07473e=Assignment(partitions=[category-update-fail-event-0]), consumer-group-1-1-a011640a-cfca-42cc-a56b-afdb78286d92=Assignment(partitions=[goal-complete-event-0]), consumer-group-1-4-75e78623-e725-47fc-8cc3-51589f06eb10=Assignment(partitions=[category-update-success-event-0]), consumer-group-1-3-ef225f64-9a53-4d25-b23e-e9ccc45fe0a2=Assignment(partitions=[add-money-event-0]), consumer-group-1-1-c40d6b60-05dd-49c3-bdad-857365f359c6=Assignment(partitions=[account-debit-success-event-0])}
+05-09-2025 10:24:03.615 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-1, groupId=group-1] Successfully synced group in generation Generation{generationId=25, memberId='consumer-group-1-1-c40d6b60-05dd-49c3-bdad-857365f359c6', protocol='range'}
+05-09-2025 10:24:03.616 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.invokeOnAssignment - [Consumer clientId=consumer-group-1-1, groupId=group-1] Notifying assignor about the new Assignment(partitions=[account-debit-success-event-0])
+05-09-2025 10:24:03.617 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerRebalanceListenerInvoker.invokePartitionsAssigned - [Consumer clientId=consumer-group-1-1, groupId=group-1] Adding newly assigned partitions: account-debit-success-event-0
+05-09-2025 10:24:03.618 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-1, groupId=group-1] Found no committed offset for partition account-debit-success-event-0
+05-09-2025 10:24:03.621 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.SubscriptionState.maybeSeekUnvalidated - [Consumer clientId=consumer-group-1-1, groupId=group-1] Resetting offset for partition account-debit-success-event-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 0 rack: null)], epoch=0}}.
+05-09-2025 10:24:03.621 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.s.k.l.KafkaMessageListenerContainer.info - group-1: partitions assigned: [account-debit-success-event-0]
+05-09-2025 10:24:09.375 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.requestRejoin - [Consumer clientId=consumer-group-1-1, groupId=group-1] Request joining group due to: group is already rebalancing
+05-09-2025 10:24:09.376 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerRebalanceListenerInvoker.invokePartitionsRevoked - [Consumer clientId=consumer-group-1-1, groupId=group-1] Revoke previously assigned partitions account-debit-success-event-0
+05-09-2025 10:24:09.376 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.s.k.l.KafkaMessageListenerContainer.info - group-1: partitions revoked: [account-debit-success-event-0]
+05-09-2025 10:24:09.376 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.sendJoinGroupRequest - [Consumer clientId=consumer-group-1-1, groupId=group-1] (Re-)joining group
+05-09-2025 10:24:09.382 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-1, groupId=group-1] Successfully joined group with generation Generation{generationId=26, memberId='consumer-group-1-1-c40d6b60-05dd-49c3-bdad-857365f359c6', protocol='range'}
+05-09-2025 10:24:09.745 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.onLeaderElected - [Consumer clientId=consumer-group-1-1, groupId=group-1] Finished assignment for group at generation 26: {consumer-group-1-1-95bb4d79-c61c-4cca-8ce2-b043aa3f828d=Assignment(partitions=[transaction-event-0]), consumer-group-1-2-763ca963-a39a-409b-81cd-315205df1450=Assignment(partitions=[transaction-complete-event-0]), consumer-group-1-2-e1553ed0-9fac-40bf-8746-10953d07473e=Assignment(partitions=[category-update-fail-event-0]), consumer-group-1-1-a011640a-cfca-42cc-a56b-afdb78286d92=Assignment(partitions=[goal-complete-event-0]), consumer-group-1-3-a326430f-e471-4340-99e6-219ff4fddfe0=Assignment(partitions=[goal-event-0]), consumer-group-1-4-75e78623-e725-47fc-8cc3-51589f06eb10=Assignment(partitions=[category-update-success-event-0]), consumer-group-1-3-ef225f64-9a53-4d25-b23e-e9ccc45fe0a2=Assignment(partitions=[add-money-event-0]), consumer-group-1-1-c40d6b60-05dd-49c3-bdad-857365f359c6=Assignment(partitions=[account-debit-success-event-0]), consumer-group-1-1-adf1caa3-cd81-41ce-afe5-82d95df009aa=Assignment(partitions=[money-reduce-complete-event-0])}
+05-09-2025 10:24:09.750 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-1, groupId=group-1] Successfully synced group in generation Generation{generationId=26, memberId='consumer-group-1-1-c40d6b60-05dd-49c3-bdad-857365f359c6', protocol='range'}
+05-09-2025 10:24:09.751 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.invokeOnAssignment - [Consumer clientId=consumer-group-1-1, groupId=group-1] Notifying assignor about the new Assignment(partitions=[account-debit-success-event-0])
+05-09-2025 10:24:09.752 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerRebalanceListenerInvoker.invokePartitionsAssigned - [Consumer clientId=consumer-group-1-1, groupId=group-1] Adding newly assigned partitions: account-debit-success-event-0
+05-09-2025 10:24:09.753 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-1, groupId=group-1] Found no committed offset for partition account-debit-success-event-0
+05-09-2025 10:24:09.756 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.SubscriptionState.maybeSeekUnvalidated - [Consumer clientId=consumer-group-1-1, groupId=group-1] Resetting offset for partition account-debit-success-event-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 0 rack: null)], epoch=0}}.
+05-09-2025 10:24:09.756 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.s.k.l.KafkaMessageListenerContainer.info - group-1: partitions assigned: [account-debit-success-event-0]
+05-09-2025 10:24:12.384 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.requestRejoin - [Consumer clientId=consumer-group-1-1, groupId=group-1] Request joining group due to: group is already rebalancing
+05-09-2025 10:24:12.384 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerRebalanceListenerInvoker.invokePartitionsRevoked - [Consumer clientId=consumer-group-1-1, groupId=group-1] Revoke previously assigned partitions account-debit-success-event-0
+05-09-2025 10:24:12.384 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.s.k.l.KafkaMessageListenerContainer.info - group-1: partitions revoked: [account-debit-success-event-0]
+05-09-2025 10:24:12.385 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.sendJoinGroupRequest - [Consumer clientId=consumer-group-1-1, groupId=group-1] (Re-)joining group
+05-09-2025 10:24:12.400 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-1, groupId=group-1] Successfully joined group with generation Generation{generationId=27, memberId='consumer-group-1-1-c40d6b60-05dd-49c3-bdad-857365f359c6', protocol='range'}
+05-09-2025 10:24:12.822 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.onLeaderElected - [Consumer clientId=consumer-group-1-1, groupId=group-1] Finished assignment for group at generation 27: {consumer-group-1-1-95bb4d79-c61c-4cca-8ce2-b043aa3f828d=Assignment(partitions=[transaction-event-0]), consumer-group-1-2-763ca963-a39a-409b-81cd-315205df1450=Assignment(partitions=[transaction-complete-event-0]), consumer-group-1-4-22343481-cd32-4111-85d4-d43713bbdb7c=Assignment(partitions=[goal-notifications-0]), consumer-group-1-1-93caa3e5-c8be-4d49-b398-8f4b748dd1b0=Assignment(partitions=[limit-notifications-0]), consumer-group-1-3-dc11ec2d-a4ac-407d-9037-a638f992636e=Assignment(partitions=[account-notifications-0]), consumer-group-1-2-e1553ed0-9fac-40bf-8746-10953d07473e=Assignment(partitions=[category-update-fail-event-0]), consumer-group-1-1-a011640a-cfca-42cc-a56b-afdb78286d92=Assignment(partitions=[goal-complete-event-0]), consumer-group-1-2-aac8ecb1-6dc4-4763-9da1-b6d1e738156b=Assignment(partitions=[report-notifications-0]), consumer-group-1-3-a326430f-e471-4340-99e6-219ff4fddfe0=Assignment(partitions=[goal-event-0]), consumer-group-1-4-75e78623-e725-47fc-8cc3-51589f06eb10=Assignment(partitions=[category-update-success-event-0]), consumer-group-1-3-ef225f64-9a53-4d25-b23e-e9ccc45fe0a2=Assignment(partitions=[add-money-event-0]), consumer-group-1-1-c40d6b60-05dd-49c3-bdad-857365f359c6=Assignment(partitions=[account-debit-success-event-0]), consumer-group-1-1-adf1caa3-cd81-41ce-afe5-82d95df009aa=Assignment(partitions=[money-reduce-complete-event-0])}
+05-09-2025 10:24:12.840 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-1, groupId=group-1] Successfully synced group in generation Generation{generationId=27, memberId='consumer-group-1-1-c40d6b60-05dd-49c3-bdad-857365f359c6', protocol='range'}
+05-09-2025 10:24:12.841 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.invokeOnAssignment - [Consumer clientId=consumer-group-1-1, groupId=group-1] Notifying assignor about the new Assignment(partitions=[account-debit-success-event-0])
+05-09-2025 10:24:12.841 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerRebalanceListenerInvoker.invokePartitionsAssigned - [Consumer clientId=consumer-group-1-1, groupId=group-1] Adding newly assigned partitions: account-debit-success-event-0
+05-09-2025 10:24:12.842 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-1, groupId=group-1] Found no committed offset for partition account-debit-success-event-0
+05-09-2025 10:24:12.844 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.a.k.c.c.i.SubscriptionState.maybeSeekUnvalidated - [Consumer clientId=consumer-group-1-1, groupId=group-1] Resetting offset for partition account-debit-success-event-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 0 rack: null)], epoch=0}}.
+05-09-2025 10:24:12.844 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  CATEGORY-SERVICE-o.s.k.l.KafkaMessageListenerContainer.info - group-1: partitions assigned: [account-debit-success-event-0]
+05-09-2025 10:24:21.123 [DiscoveryClient-CacheRefreshExecutor-%d] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Disable delta property : false
+05-09-2025 10:24:21.123 [DiscoveryClient-CacheRefreshExecutor-%d] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Single vip registry refresh property : null
+05-09-2025 10:24:21.124 [DiscoveryClient-CacheRefreshExecutor-%d] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Force full registry fetch : false
+05-09-2025 10:24:21.124 [DiscoveryClient-CacheRefreshExecutor-%d] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Application is null : false
+05-09-2025 10:24:21.124 [DiscoveryClient-CacheRefreshExecutor-%d] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Registered Applications size is zero : true
+05-09-2025 10:24:21.124 [DiscoveryClient-CacheRefreshExecutor-%d] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Application version is -1: false
+05-09-2025 10:24:21.125 [DiscoveryClient-CacheRefreshExecutor-%d] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry - Getting all instance registry info from the eureka server
+05-09-2025 10:24:21.148 [DiscoveryClient-CacheRefreshExecutor-%d] [-] INFO  CATEGORY-SERVICE-c.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry - The response status is 200

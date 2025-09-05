@@ -1,0 +1,54 @@
+05-09-2025 10:23:53.532 [background-preinit] [-] INFO  API-GATEWAY-o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.2.Final
+05-09-2025 10:23:53.563 [restartedMain] [-] INFO  API-GATEWAY-c.api_gateway.ApiGatewayApplication.logStarting - Starting ApiGatewayApplication using Java 21.0.8 with PID 15616 (D:\Personal Finance Tracker\ApiGateway\target\classes started by Satya in D:\Personal Finance Tracker\UserService)
+05-09-2025 10:23:53.564 [restartedMain] [-] INFO  API-GATEWAY-c.api_gateway.ApiGatewayApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+05-09-2025 10:23:53.605 [restartedMain] [-] INFO  API-GATEWAY-o.s.c.c.c.ConfigServerConfigDataLoader.logTo - Fetching config from server at : http://localhost:8086
+05-09-2025 10:23:53.619 [restartedMain] [-] INFO  API-GATEWAY-o.s.c.c.c.ConfigServerConfigDataLoader.logTo - Located environment: name=API-GATEWAY, profiles=[default], label=null, version=c503f00a890dab213fc47001b5ee60722bc117e2, state=
+05-09-2025 10:23:53.702 [restartedMain] [-] INFO  API-GATEWAY-o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+05-09-2025 10:23:53.702 [restartedMain] [-] INFO  API-GATEWAY-o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+05-09-2025 10:23:54.190 [restartedMain] [-] INFO  API-GATEWAY-o.s.cloud.context.scope.GenericScope.setSerializationId - BeanFactory id=3b35916b-d273-39fb-b8b1-55e2f6f32598
+05-09-2025 10:23:54.775 [restartedMain] [-] INFO  API-GATEWAY-o.s.c.g.r.RouteDefinitionRouteLocator.lambda$initFactories$1 - Loaded RoutePredicateFactory [After]
+05-09-2025 10:23:54.776 [restartedMain] [-] INFO  API-GATEWAY-o.s.c.g.r.RouteDefinitionRouteLocator.lambda$initFactories$1 - Loaded RoutePredicateFactory [Before]
+05-09-2025 10:23:54.776 [restartedMain] [-] INFO  API-GATEWAY-o.s.c.g.r.RouteDefinitionRouteLocator.lambda$initFactories$1 - Loaded RoutePredicateFactory [Between]
+05-09-2025 10:23:54.776 [restartedMain] [-] INFO  API-GATEWAY-o.s.c.g.r.RouteDefinitionRouteLocator.lambda$initFactories$1 - Loaded RoutePredicateFactory [Cookie]
+05-09-2025 10:23:54.776 [restartedMain] [-] INFO  API-GATEWAY-o.s.c.g.r.RouteDefinitionRouteLocator.lambda$initFactories$1 - Loaded RoutePredicateFactory [Header]
+05-09-2025 10:23:54.776 [restartedMain] [-] INFO  API-GATEWAY-o.s.c.g.r.RouteDefinitionRouteLocator.lambda$initFactories$1 - Loaded RoutePredicateFactory [Host]
+05-09-2025 10:23:54.776 [restartedMain] [-] INFO  API-GATEWAY-o.s.c.g.r.RouteDefinitionRouteLocator.lambda$initFactories$1 - Loaded RoutePredicateFactory [Method]
+05-09-2025 10:23:54.776 [restartedMain] [-] INFO  API-GATEWAY-o.s.c.g.r.RouteDefinitionRouteLocator.lambda$initFactories$1 - Loaded RoutePredicateFactory [Path]
+05-09-2025 10:23:54.776 [restartedMain] [-] INFO  API-GATEWAY-o.s.c.g.r.RouteDefinitionRouteLocator.lambda$initFactories$1 - Loaded RoutePredicateFactory [Query]
+05-09-2025 10:23:54.777 [restartedMain] [-] INFO  API-GATEWAY-o.s.c.g.r.RouteDefinitionRouteLocator.lambda$initFactories$1 - Loaded RoutePredicateFactory [ReadBody]
+05-09-2025 10:23:54.777 [restartedMain] [-] INFO  API-GATEWAY-o.s.c.g.r.RouteDefinitionRouteLocator.lambda$initFactories$1 - Loaded RoutePredicateFactory [RemoteAddr]
+05-09-2025 10:23:54.777 [restartedMain] [-] INFO  API-GATEWAY-o.s.c.g.r.RouteDefinitionRouteLocator.lambda$initFactories$1 - Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+05-09-2025 10:23:54.777 [restartedMain] [-] INFO  API-GATEWAY-o.s.c.g.r.RouteDefinitionRouteLocator.lambda$initFactories$1 - Loaded RoutePredicateFactory [Weight]
+05-09-2025 10:23:54.777 [restartedMain] [-] INFO  API-GATEWAY-o.s.c.g.r.RouteDefinitionRouteLocator.lambda$initFactories$1 - Loaded RoutePredicateFactory [CloudFoundryRouteService]
+05-09-2025 10:23:54.925 [restartedMain] [-] WARN  API-GATEWAY-o.s.b.d.a.OptionalLiveReloadServer.startServer - Unable to start LiveReload server
+05-09-2025 10:23:54.950 [restartedMain] [-] INFO  API-GATEWAY-o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration.restTemplateDiscoveryClientOptionalArgs - Eureka HTTP Client uses RestTemplate.
+05-09-2025 10:23:54.980 [restartedMain] [-] WARN  API-GATEWAY-o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger.afterPropertiesSet - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+05-09-2025 10:23:55.022 [restartedMain] [-] INFO  API-GATEWAY-o.s.c.n.eureka.InstanceInfoFactory.create - Setting initial instance status as: STARTING
+05-09-2025 10:23:55.038 [restartedMain] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.<init> - Initializing Eureka in region us-east-1
+05-09-2025 10:23:55.041 [restartedMain] [-] INFO  API-GATEWAY-c.n.d.s.r.aws.ConfigClusterResolver.getClusterEndpoints - Resolving eureka endpoints via configuration
+05-09-2025 10:23:55.049 [restartedMain] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.fetchRegistry - Disable delta property : false
+05-09-2025 10:23:55.049 [restartedMain] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.fetchRegistry - Single vip registry refresh property : null
+05-09-2025 10:23:55.049 [restartedMain] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.fetchRegistry - Force full registry fetch : false
+05-09-2025 10:23:55.049 [restartedMain] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.fetchRegistry - Application is null : false
+05-09-2025 10:23:55.049 [restartedMain] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.fetchRegistry - Registered Applications size is zero : true
+05-09-2025 10:23:55.049 [restartedMain] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.fetchRegistry - Application version is -1: true
+05-09-2025 10:23:55.049 [restartedMain] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry - Getting all instance registry info from the eureka server
+05-09-2025 10:23:55.273 [restartedMain] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry - The response status is 200
+05-09-2025 10:23:55.274 [restartedMain] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.initScheduledTasks - Starting heartbeat executor: renew interval is: 30
+05-09-2025 10:23:55.276 [restartedMain] [-] INFO  API-GATEWAY-c.n.discovery.InstanceInfoReplicator.<init> - InstanceInfoReplicator onDemand update allowed rate per min is 4
+05-09-2025 10:23:55.278 [restartedMain] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.<init> - Discovery Client initialized at timestamp 1757048035277 with initial instances count: 0
+05-09-2025 10:23:55.281 [restartedMain] [-] INFO  API-GATEWAY-o.s.c.n.e.s.EurekaServiceRegistry.register - Registering application API-GATEWAY with eureka with status UP
+05-09-2025 10:23:55.281 [restartedMain] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.notify - Saw local status change event StatusChangeEvent [timestamp=1757048035281, current=UP, previous=STARTING]
+05-09-2025 10:23:55.283 [DiscoveryClient-InstanceInfoReplicator-%d] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.register - DiscoveryClient_API-GATEWAY/10.150.0.155:API-GATEWAY:8087: registering service...
+05-09-2025 10:23:55.315 [DiscoveryClient-InstanceInfoReplicator-%d] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.register - DiscoveryClient_API-GATEWAY/10.150.0.155:API-GATEWAY:8087 - registration status: 204
+05-09-2025 10:23:55.431 [restartedMain] [-] INFO  API-GATEWAY-o.s.b.w.e.netty.NettyWebServer.start - Netty started on port 8087 (http)
+05-09-2025 10:23:55.432 [restartedMain] [-] INFO  API-GATEWAY-o.s.c.n.e.s.EurekaAutoServiceRegistration.onApplicationEvent - Updating port to 8087
+05-09-2025 10:23:55.456 [restartedMain] [-] INFO  API-GATEWAY-c.api_gateway.ApiGatewayApplication.logStarted - Started ApiGatewayApplication in 3.862 seconds (process running for 4.7)
+05-09-2025 10:24:25.284 [DiscoveryClient-CacheRefreshExecutor-%d] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.fetchRegistry - Disable delta property : false
+05-09-2025 10:24:25.285 [DiscoveryClient-CacheRefreshExecutor-%d] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.fetchRegistry - Single vip registry refresh property : null
+05-09-2025 10:24:25.285 [DiscoveryClient-CacheRefreshExecutor-%d] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.fetchRegistry - Force full registry fetch : false
+05-09-2025 10:24:25.285 [DiscoveryClient-CacheRefreshExecutor-%d] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.fetchRegistry - Application is null : false
+05-09-2025 10:24:25.286 [DiscoveryClient-CacheRefreshExecutor-%d] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.fetchRegistry - Registered Applications size is zero : true
+05-09-2025 10:24:25.286 [DiscoveryClient-CacheRefreshExecutor-%d] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.fetchRegistry - Application version is -1: false
+05-09-2025 10:24:25.286 [DiscoveryClient-CacheRefreshExecutor-%d] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry - Getting all instance registry info from the eureka server
+05-09-2025 10:24:25.309 [DiscoveryClient-CacheRefreshExecutor-%d] [-] INFO  API-GATEWAY-c.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry - The response status is 200

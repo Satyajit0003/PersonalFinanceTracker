@@ -15,34 +15,31 @@ spring:
       port: 27017
       database: financeDb
     redis:
-      host:
-        redis:
-          host: redis-18289.c301.ap-south-1-1.ec2.redns.redis-cloud.com
-          port: 18289
-          password: ${REDIS-PASSWORD}
-          ssl:
-            enabled: true
+      host: redis-18289.c301.ap-south-1-1.ec2.redns.redis-cloud.com
+      port: 18289
+      password: ${REDIS-PASSWORD}
+      ssl:
+        enabled: true
 
-  config:
-    import: configserver:http://localhost:8086
+
   kafka:
     bootstrap-servers: localhost:9092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
     consumer:
-      bootstrap-servers: localhost:9092
+      group-id: group-1
+      auto-offset-reset: earliest
+      enable-auto-commit: false
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
-      auto-offset-reset: latest
-      enable-auto-commit: false
-      group-id: group-1
       properties:
         spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
         spring.json.trusted.packages: "*"
+
     listener:
       ack-mode: manual
 
-
-
-
+  config:
+    import: optional:configserver:http://localhost:8086

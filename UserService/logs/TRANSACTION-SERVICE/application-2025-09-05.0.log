@@ -1,0 +1,506 @@
+05-09-2025 10:24:04.193 [main] [-] INFO  TRANSACTION-SERVICE-c.t.TransactionServiceApplication.logStarting - Starting TransactionServiceApplication using Java 21.0.8 with PID 23400 (D:\Personal Finance Tracker\TransactionService\target\classes started by Satya in D:\Personal Finance Tracker\UserService)
+05-09-2025 10:24:04.197 [main] [-] INFO  TRANSACTION-SERVICE-c.t.TransactionServiceApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+05-09-2025 10:24:04.264 [main] [-] INFO  TRANSACTION-SERVICE-o.s.c.c.c.ConfigServerConfigDataLoader.logTo - Fetching config from server at : http://localhost:8086
+05-09-2025 10:24:04.265 [main] [-] INFO  TRANSACTION-SERVICE-o.s.c.c.c.ConfigServerConfigDataLoader.logTo - Located environment: name=TRANSACTION-SERVICE, profiles=[default], label=null, version=c503f00a890dab213fc47001b5ee60722bc117e2, state=
+05-09-2025 10:24:05.260 [main] [-] INFO  TRANSACTION-SERVICE-o.s.d.r.c.RepositoryConfigurationDelegate.multipleStoresDetected - Multiple Spring Data modules found, entering strict repository configuration mode
+05-09-2025 10:24:05.263 [main] [-] INFO  TRANSACTION-SERVICE-o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+05-09-2025 10:24:05.429 [main] [-] INFO  TRANSACTION-SERVICE-o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 157 ms. Found 1 MongoDB repository interface.
+05-09-2025 10:24:05.445 [main] [-] INFO  TRANSACTION-SERVICE-o.s.d.r.c.RepositoryConfigurationDelegate.multipleStoresDetected - Multiple Spring Data modules found, entering strict repository configuration mode
+05-09-2025 10:24:05.447 [main] [-] INFO  TRANSACTION-SERVICE-o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+05-09-2025 10:24:05.460 [main] [-] INFO  TRANSACTION-SERVICE-o.s.d.r.c.RepositoryConfigurationExtensionSupport.isStrictRepositoryCandidate - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.transaction_service.repository.TransactionRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+05-09-2025 10:24:05.460 [main] [-] INFO  TRANSACTION-SERVICE-o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+05-09-2025 10:24:05.727 [main] [-] INFO  TRANSACTION-SERVICE-o.s.cloud.context.scope.GenericScope.setSerializationId - BeanFactory id=6c77d769-df5b-3dda-b163-6a19946a16ec
+05-09-2025 10:24:06.066 [main] [-] INFO  TRANSACTION-SERVICE-o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port 8083 (http)
+05-09-2025 10:24:06.078 [main] [-] INFO  TRANSACTION-SERVICE-o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8083"]
+05-09-2025 10:24:06.080 [main] [-] INFO  TRANSACTION-SERVICE-o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+05-09-2025 10:24:06.080 [main] [-] INFO  TRANSACTION-SERVICE-o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.43]
+05-09-2025 10:24:06.135 [main] [-] INFO  TRANSACTION-SERVICE-o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+05-09-2025 10:24:06.136 [main] [-] INFO  TRANSACTION-SERVICE-o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1855 ms
+05-09-2025 10:24:06.351 [main] [-] INFO  TRANSACTION-SERVICE-org.mongodb.driver.client.info - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "5.5.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Eclipse Adoptium/21.0.8+9-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@5d74507c, com.mongodb.Jep395RecordCodecProvider@2a984952, com.mongodb.KotlinCodecProvider@16944b58]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null, timeoutMS=null}
+05-09-2025 10:24:06.359 [cluster-ClusterId{value='68ba6cee92d64659b3f18dad', description='null'}-localhost:27017] [-] INFO  TRANSACTION-SERVICE-org.mongodb.driver.cluster.info - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, cryptd=false, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=23649900, minRoundTripTimeNanos=0}
+05-09-2025 10:24:06.856 [main] [-] INFO  TRANSACTION-SERVICE-o.s.c.o.FeignClientFactoryBean.getTarget - For 'USER-SERVICE' URL not provided. Will try picking an instance via load-balancing.
+05-09-2025 10:24:07.965 [main] [-] INFO  TRANSACTION-SERVICE-o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration.restTemplateDiscoveryClientOptionalArgs - Eureka HTTP Client uses RestTemplate.
+05-09-2025 10:24:08.005 [main] [-] WARN  TRANSACTION-SERVICE-o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger.afterPropertiesSet - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+05-09-2025 10:24:08.121 [main] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.admin.AdminClientConfig.logAll - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.controllers = []
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = TRANSACTION-SERVICE-admin-0
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = true
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+05-09-2025 10:24:08.214 [main] [-] INFO  TRANSACTION-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka version: 3.9.1
+05-09-2025 10:24:08.216 [main] [-] INFO  TRANSACTION-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka commitId: f745dfdcee2b9851
+05-09-2025 10:24:08.216 [main] [-] INFO  TRANSACTION-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka startTimeMs: 1757048048213
+05-09-2025 10:24:08.705 [kafka-admin-client-thread | TRANSACTION-SERVICE-admin-0] [-] INFO  TRANSACTION-SERVICE-o.a.kafka.common.utils.AppInfoParser.unregisterAppInfo - App info kafka.admin.client for TRANSACTION-SERVICE-admin-0 unregistered
+05-09-2025 10:24:08.711 [kafka-admin-client-thread | TRANSACTION-SERVICE-admin-0] [-] INFO  TRANSACTION-SERVICE-o.a.kafka.common.metrics.Metrics.close - Metrics scheduler closed
+05-09-2025 10:24:08.711 [kafka-admin-client-thread | TRANSACTION-SERVICE-admin-0] [-] INFO  TRANSACTION-SERVICE-o.a.kafka.common.metrics.Metrics.close - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+05-09-2025 10:24:08.712 [kafka-admin-client-thread | TRANSACTION-SERVICE-admin-0] [-] INFO  TRANSACTION-SERVICE-o.a.kafka.common.metrics.Metrics.close - Metrics reporters closed
+05-09-2025 10:24:08.725 [main] [-] INFO  TRANSACTION-SERVICE-o.s.c.n.eureka.InstanceInfoFactory.create - Setting initial instance status as: STARTING
+05-09-2025 10:24:08.752 [main] [-] INFO  TRANSACTION-SERVICE-c.netflix.discovery.DiscoveryClient.<init> - Initializing Eureka in region us-east-1
+05-09-2025 10:24:08.756 [main] [-] INFO  TRANSACTION-SERVICE-c.n.d.s.r.aws.ConfigClusterResolver.getClusterEndpoints - Resolving eureka endpoints via configuration
+05-09-2025 10:24:08.765 [main] [-] INFO  TRANSACTION-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Disable delta property : false
+05-09-2025 10:24:08.765 [main] [-] INFO  TRANSACTION-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Single vip registry refresh property : null
+05-09-2025 10:24:08.765 [main] [-] INFO  TRANSACTION-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Force full registry fetch : false
+05-09-2025 10:24:08.765 [main] [-] INFO  TRANSACTION-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Application is null : false
+05-09-2025 10:24:08.765 [main] [-] INFO  TRANSACTION-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Registered Applications size is zero : true
+05-09-2025 10:24:08.765 [main] [-] INFO  TRANSACTION-SERVICE-c.netflix.discovery.DiscoveryClient.fetchRegistry - Application version is -1: true
+05-09-2025 10:24:08.766 [main] [-] INFO  TRANSACTION-SERVICE-c.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry - Getting all instance registry info from the eureka server
+05-09-2025 10:24:09.044 [main] [-] INFO  TRANSACTION-SERVICE-c.netflix.discovery.DiscoveryClient.getAndStoreFullRegistry - The response status is 200
+05-09-2025 10:24:09.047 [main] [-] INFO  TRANSACTION-SERVICE-c.netflix.discovery.DiscoveryClient.initScheduledTasks - Starting heartbeat executor: renew interval is: 30
+05-09-2025 10:24:09.048 [main] [-] INFO  TRANSACTION-SERVICE-c.n.discovery.InstanceInfoReplicator.<init> - InstanceInfoReplicator onDemand update allowed rate per min is 4
+05-09-2025 10:24:09.049 [main] [-] INFO  TRANSACTION-SERVICE-c.netflix.discovery.DiscoveryClient.<init> - Discovery Client initialized at timestamp 1757048049049 with initial instances count: 4
+05-09-2025 10:24:09.053 [main] [-] INFO  TRANSACTION-SERVICE-o.s.c.n.e.s.EurekaServiceRegistry.register - Registering application TRANSACTION-SERVICE with eureka with status UP
+05-09-2025 10:24:09.053 [main] [-] INFO  TRANSACTION-SERVICE-c.netflix.discovery.DiscoveryClient.notify - Saw local status change event StatusChangeEvent [timestamp=1757048049053, current=UP, previous=STARTING]
+05-09-2025 10:24:09.054 [main] [-] INFO  TRANSACTION-SERVICE-o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8083"]
+05-09-2025 10:24:09.055 [DiscoveryClient-InstanceInfoReplicator-%d] [-] INFO  TRANSACTION-SERVICE-c.netflix.discovery.DiscoveryClient.register - DiscoveryClient_TRANSACTION-SERVICE/10.150.0.155:TRANSACTION-SERVICE:8083: registering service...
+05-09-2025 10:24:09.067 [main] [-] INFO  TRANSACTION-SERVICE-o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port 8083 (http) with context path '/'
+05-09-2025 10:24:09.068 [main] [-] INFO  TRANSACTION-SERVICE-o.s.c.n.e.s.EurekaAutoServiceRegistration.onApplicationEvent - Updating port to 8083
+05-09-2025 10:24:09.096 [main] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.consumer.ConsumerConfig.logAll - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-group-1-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = group-1
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+
+05-09-2025 10:24:09.097 [DiscoveryClient-InstanceInfoReplicator-%d] [-] INFO  TRANSACTION-SERVICE-c.netflix.discovery.DiscoveryClient.register - DiscoveryClient_TRANSACTION-SERVICE/10.150.0.155:TRANSACTION-SERVICE:8083 - registration status: 204
+05-09-2025 10:24:09.124 [main] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.t.i.KafkaMetricsCollector.init - initializing Kafka metrics collector
+05-09-2025 10:24:09.165 [main] [-] INFO  TRANSACTION-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka version: 3.9.1
+05-09-2025 10:24:09.166 [main] [-] INFO  TRANSACTION-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka commitId: f745dfdcee2b9851
+05-09-2025 10:24:09.166 [main] [-] INFO  TRANSACTION-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka startTimeMs: 1757048049165
+05-09-2025 10:24:09.167 [main] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ClassicKafkaConsumer.subscribeInternal - [Consumer clientId=consumer-group-1-1, groupId=group-1] Subscribed to topic(s): money-reduce-complete-event
+05-09-2025 10:24:09.174 [main] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.consumer.ConsumerConfig.logAll - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-group-1-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = group-1
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+
+05-09-2025 10:24:09.175 [main] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.t.i.KafkaMetricsCollector.init - initializing Kafka metrics collector
+05-09-2025 10:24:09.184 [main] [-] INFO  TRANSACTION-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka version: 3.9.1
+05-09-2025 10:24:09.185 [main] [-] INFO  TRANSACTION-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka commitId: f745dfdcee2b9851
+05-09-2025 10:24:09.185 [main] [-] INFO  TRANSACTION-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka startTimeMs: 1757048049184
+05-09-2025 10:24:09.186 [main] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ClassicKafkaConsumer.subscribeInternal - [Consumer clientId=consumer-group-1-2, groupId=group-1] Subscribed to topic(s): transaction-complete-event
+05-09-2025 10:24:09.188 [main] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.consumer.ConsumerConfig.logAll - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-group-1-3
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = group-1
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+
+05-09-2025 10:24:09.189 [main] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.t.i.KafkaMetricsCollector.init - initializing Kafka metrics collector
+05-09-2025 10:24:09.190 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-org.apache.kafka.clients.Metadata.update - [Consumer clientId=consumer-group-1-1, groupId=group-1] Cluster ID: zFYxuZhRRQ2fAt8b7UC71g
+05-09-2025 10:24:09.191 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.onSuccess - [Consumer clientId=consumer-group-1-1, groupId=group-1] Discovered group coordinator localhost:9092 (id: 2147483647 rack: null)
+05-09-2025 10:24:09.193 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-org.apache.kafka.clients.Metadata.update - [Consumer clientId=consumer-group-1-2, groupId=group-1] Cluster ID: zFYxuZhRRQ2fAt8b7UC71g
+05-09-2025 10:24:09.193 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.sendJoinGroupRequest - [Consumer clientId=consumer-group-1-1, groupId=group-1] (Re-)joining group
+05-09-2025 10:24:09.194 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.onSuccess - [Consumer clientId=consumer-group-1-2, groupId=group-1] Discovered group coordinator localhost:9092 (id: 2147483647 rack: null)
+05-09-2025 10:24:09.195 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.sendJoinGroupRequest - [Consumer clientId=consumer-group-1-2, groupId=group-1] (Re-)joining group
+05-09-2025 10:24:09.196 [main] [-] INFO  TRANSACTION-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka version: 3.9.1
+05-09-2025 10:24:09.196 [main] [-] INFO  TRANSACTION-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka commitId: f745dfdcee2b9851
+05-09-2025 10:24:09.196 [main] [-] INFO  TRANSACTION-SERVICE-o.a.kafka.common.utils.AppInfoParser.<init> - Kafka startTimeMs: 1757048049196
+05-09-2025 10:24:09.197 [main] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ClassicKafkaConsumer.subscribeInternal - [Consumer clientId=consumer-group-1-3, groupId=group-1] Subscribed to topic(s): goal-event
+05-09-2025 10:24:09.202 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-org.apache.kafka.clients.Metadata.update - [Consumer clientId=consumer-group-1-3, groupId=group-1] Cluster ID: zFYxuZhRRQ2fAt8b7UC71g
+05-09-2025 10:24:09.204 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.onSuccess - [Consumer clientId=consumer-group-1-3, groupId=group-1] Discovered group coordinator localhost:9092 (id: 2147483647 rack: null)
+05-09-2025 10:24:09.205 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.sendJoinGroupRequest - [Consumer clientId=consumer-group-1-3, groupId=group-1] (Re-)joining group
+05-09-2025 10:24:09.209 [main] [-] INFO  TRANSACTION-SERVICE-c.t.TransactionServiceApplication.logStarted - Started TransactionServiceApplication in 6.846 seconds (process running for 7.636)
+05-09-2025 10:24:09.213 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.requestRejoin - [Consumer clientId=consumer-group-1-1, groupId=group-1] Request joining group due to: need to re-join with the given member-id: consumer-group-1-1-adf1caa3-cd81-41ce-afe5-82d95df009aa
+05-09-2025 10:24:09.213 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.requestRejoin - [Consumer clientId=consumer-group-1-3, groupId=group-1] Request joining group due to: need to re-join with the given member-id: consumer-group-1-3-a326430f-e471-4340-99e6-219ff4fddfe0
+05-09-2025 10:24:09.213 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.sendJoinGroupRequest - [Consumer clientId=consumer-group-1-3, groupId=group-1] (Re-)joining group
+05-09-2025 10:24:09.213 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.sendJoinGroupRequest - [Consumer clientId=consumer-group-1-1, groupId=group-1] (Re-)joining group
+05-09-2025 10:24:09.213 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.requestRejoin - [Consumer clientId=consumer-group-1-2, groupId=group-1] Request joining group due to: need to re-join with the given member-id: consumer-group-1-2-763ca963-a39a-409b-81cd-315205df1450
+05-09-2025 10:24:09.214 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.sendJoinGroupRequest - [Consumer clientId=consumer-group-1-2, groupId=group-1] (Re-)joining group
+05-09-2025 10:24:09.381 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-2, groupId=group-1] Successfully joined group with generation Generation{generationId=26, memberId='consumer-group-1-2-763ca963-a39a-409b-81cd-315205df1450', protocol='range'}
+05-09-2025 10:24:09.381 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-3, groupId=group-1] Successfully joined group with generation Generation{generationId=26, memberId='consumer-group-1-3-a326430f-e471-4340-99e6-219ff4fddfe0', protocol='range'}
+05-09-2025 10:24:09.381 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-1, groupId=group-1] Successfully joined group with generation Generation{generationId=26, memberId='consumer-group-1-1-adf1caa3-cd81-41ce-afe5-82d95df009aa', protocol='range'}
+05-09-2025 10:24:09.749 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-3, groupId=group-1] Successfully synced group in generation Generation{generationId=26, memberId='consumer-group-1-3-a326430f-e471-4340-99e6-219ff4fddfe0', protocol='range'}
+05-09-2025 10:24:09.749 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-1, groupId=group-1] Successfully synced group in generation Generation{generationId=26, memberId='consumer-group-1-1-adf1caa3-cd81-41ce-afe5-82d95df009aa', protocol='range'}
+05-09-2025 10:24:09.749 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-2, groupId=group-1] Successfully synced group in generation Generation{generationId=26, memberId='consumer-group-1-2-763ca963-a39a-409b-81cd-315205df1450', protocol='range'}
+05-09-2025 10:24:09.754 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.invokeOnAssignment - [Consumer clientId=consumer-group-1-3, groupId=group-1] Notifying assignor about the new Assignment(partitions=[goal-event-0])
+05-09-2025 10:24:09.754 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.invokeOnAssignment - [Consumer clientId=consumer-group-1-1, groupId=group-1] Notifying assignor about the new Assignment(partitions=[money-reduce-complete-event-0])
+05-09-2025 10:24:09.754 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.invokeOnAssignment - [Consumer clientId=consumer-group-1-2, groupId=group-1] Notifying assignor about the new Assignment(partitions=[transaction-complete-event-0])
+05-09-2025 10:24:09.759 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerRebalanceListenerInvoker.invokePartitionsAssigned - [Consumer clientId=consumer-group-1-1, groupId=group-1] Adding newly assigned partitions: money-reduce-complete-event-0
+05-09-2025 10:24:09.759 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerRebalanceListenerInvoker.invokePartitionsAssigned - [Consumer clientId=consumer-group-1-2, groupId=group-1] Adding newly assigned partitions: transaction-complete-event-0
+05-09-2025 10:24:09.759 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerRebalanceListenerInvoker.invokePartitionsAssigned - [Consumer clientId=consumer-group-1-3, groupId=group-1] Adding newly assigned partitions: goal-event-0
+05-09-2025 10:24:09.776 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.internals.ConsumerUtils.refreshCommittedOffsets - Setting offset for partition goal-event-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 0 rack: null)], epoch=0}}
+05-09-2025 10:24:09.776 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.internals.ConsumerUtils.refreshCommittedOffsets - Setting offset for partition transaction-complete-event-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 0 rack: null)], epoch=0}}
+05-09-2025 10:24:09.776 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.internals.ConsumerUtils.refreshCommittedOffsets - Setting offset for partition money-reduce-complete-event-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 0 rack: null)], epoch=0}}
+05-09-2025 10:24:09.779 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.s.k.l.KafkaMessageListenerContainer.info - group-1: partitions assigned: [transaction-complete-event-0]
+05-09-2025 10:24:09.779 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.s.k.l.KafkaMessageListenerContainer.info - group-1: partitions assigned: [money-reduce-complete-event-0]
+05-09-2025 10:24:09.779 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.s.k.l.KafkaMessageListenerContainer.info - group-1: partitions assigned: [goal-event-0]
+05-09-2025 10:24:12.387 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.requestRejoin - [Consumer clientId=consumer-group-1-1, groupId=group-1] Request joining group due to: group is already rebalancing
+05-09-2025 10:24:12.388 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerRebalanceListenerInvoker.invokePartitionsRevoked - [Consumer clientId=consumer-group-1-1, groupId=group-1] Revoke previously assigned partitions money-reduce-complete-event-0
+05-09-2025 10:24:12.388 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.requestRejoin - [Consumer clientId=consumer-group-1-3, groupId=group-1] Request joining group due to: group is already rebalancing
+05-09-2025 10:24:12.388 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.requestRejoin - [Consumer clientId=consumer-group-1-2, groupId=group-1] Request joining group due to: group is already rebalancing
+05-09-2025 10:24:12.389 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerRebalanceListenerInvoker.invokePartitionsRevoked - [Consumer clientId=consumer-group-1-3, groupId=group-1] Revoke previously assigned partitions goal-event-0
+05-09-2025 10:24:12.389 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerRebalanceListenerInvoker.invokePartitionsRevoked - [Consumer clientId=consumer-group-1-2, groupId=group-1] Revoke previously assigned partitions transaction-complete-event-0
+05-09-2025 10:24:12.390 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.s.k.l.KafkaMessageListenerContainer.info - group-1: partitions revoked: [goal-event-0]
+05-09-2025 10:24:12.390 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.s.k.l.KafkaMessageListenerContainer.info - group-1: partitions revoked: [transaction-complete-event-0]
+05-09-2025 10:24:12.390 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.s.k.l.KafkaMessageListenerContainer.info - group-1: partitions revoked: [money-reduce-complete-event-0]
+05-09-2025 10:24:12.391 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.sendJoinGroupRequest - [Consumer clientId=consumer-group-1-3, groupId=group-1] (Re-)joining group
+05-09-2025 10:24:12.391 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.sendJoinGroupRequest - [Consumer clientId=consumer-group-1-2, groupId=group-1] (Re-)joining group
+05-09-2025 10:24:12.391 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.sendJoinGroupRequest - [Consumer clientId=consumer-group-1-1, groupId=group-1] (Re-)joining group
+05-09-2025 10:24:12.397 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-1, groupId=group-1] Successfully joined group with generation Generation{generationId=27, memberId='consumer-group-1-1-adf1caa3-cd81-41ce-afe5-82d95df009aa', protocol='range'}
+05-09-2025 10:24:12.399 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-3, groupId=group-1] Successfully joined group with generation Generation{generationId=27, memberId='consumer-group-1-3-a326430f-e471-4340-99e6-219ff4fddfe0', protocol='range'}
+05-09-2025 10:24:12.402 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-2, groupId=group-1] Successfully joined group with generation Generation{generationId=27, memberId='consumer-group-1-2-763ca963-a39a-409b-81cd-315205df1450', protocol='range'}
+05-09-2025 10:24:12.830 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-3, groupId=group-1] Successfully synced group in generation Generation{generationId=27, memberId='consumer-group-1-3-a326430f-e471-4340-99e6-219ff4fddfe0', protocol='range'}
+05-09-2025 10:24:12.830 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-1, groupId=group-1] Successfully synced group in generation Generation{generationId=27, memberId='consumer-group-1-1-adf1caa3-cd81-41ce-afe5-82d95df009aa', protocol='range'}
+05-09-2025 10:24:12.831 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.handle - [Consumer clientId=consumer-group-1-2, groupId=group-1] Successfully synced group in generation Generation{generationId=27, memberId='consumer-group-1-2-763ca963-a39a-409b-81cd-315205df1450', protocol='range'}
+05-09-2025 10:24:12.832 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.invokeOnAssignment - [Consumer clientId=consumer-group-1-1, groupId=group-1] Notifying assignor about the new Assignment(partitions=[money-reduce-complete-event-0])
+05-09-2025 10:24:12.832 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.invokeOnAssignment - [Consumer clientId=consumer-group-1-2, groupId=group-1] Notifying assignor about the new Assignment(partitions=[transaction-complete-event-0])
+05-09-2025 10:24:12.832 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerRebalanceListenerInvoker.invokePartitionsAssigned - [Consumer clientId=consumer-group-1-1, groupId=group-1] Adding newly assigned partitions: money-reduce-complete-event-0
+05-09-2025 10:24:12.833 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerRebalanceListenerInvoker.invokePartitionsAssigned - [Consumer clientId=consumer-group-1-2, groupId=group-1] Adding newly assigned partitions: transaction-complete-event-0
+05-09-2025 10:24:12.833 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerCoordinator.invokeOnAssignment - [Consumer clientId=consumer-group-1-3, groupId=group-1] Notifying assignor about the new Assignment(partitions=[goal-event-0])
+05-09-2025 10:24:12.833 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.i.ConsumerRebalanceListenerInvoker.invokePartitionsAssigned - [Consumer clientId=consumer-group-1-3, groupId=group-1] Adding newly assigned partitions: goal-event-0
+05-09-2025 10:24:12.838 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.internals.ConsumerUtils.refreshCommittedOffsets - Setting offset for partition money-reduce-complete-event-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 0 rack: null)], epoch=0}}
+05-09-2025 10:24:12.839 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.internals.ConsumerUtils.refreshCommittedOffsets - Setting offset for partition transaction-complete-event-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 0 rack: null)], epoch=0}}
+05-09-2025 10:24:12.839 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.a.k.c.c.internals.ConsumerUtils.refreshCommittedOffsets - Setting offset for partition goal-event-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 0 rack: null)], epoch=0}}
+05-09-2025 10:24:12.839 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.s.k.l.KafkaMessageListenerContainer.info - group-1: partitions assigned: [goal-event-0]
+05-09-2025 10:24:12.839 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.s.k.l.KafkaMessageListenerContainer.info - group-1: partitions assigned: [money-reduce-complete-event-0]
+05-09-2025 10:24:12.839 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] [-] INFO  TRANSACTION-SERVICE-o.s.k.l.KafkaMessageListenerContainer.info - group-1: partitions assigned: [transaction-complete-event-0]

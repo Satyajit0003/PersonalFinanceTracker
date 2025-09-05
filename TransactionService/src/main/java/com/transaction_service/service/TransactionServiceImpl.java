@@ -2,7 +2,6 @@ package com.transaction_service.service;
 
 import com.common_library.dto.EmailDto;
 import com.common_library.entity.User;
-
 import com.common_library.enums.TransactionStatus;
 import com.common_library.event.TransactionEvent;
 import com.transaction_service.dto.TransactionDto;
@@ -41,6 +40,8 @@ public class TransactionServiceImpl implements TransactionService{
     @Override
     @Transactional
     public String createTransaction(TransactionDto transactionDto) {
+        log.info("Creating transaction with data: {}", transactionDto);
+
         Transaction transaction = new Transaction();
         transaction.setAccountId(transactionDto.getAccountId());
         transaction.setUserId(transactionDto.getUserId());
@@ -51,24 +52,27 @@ public class TransactionServiceImpl implements TransactionService{
         transaction.setTransactionStatus(TransactionStatus.PENDING);
 
         Transaction saved = transactionRepository.save(transaction);
-        log.info("Transaction created successfully {}", saved);
+        log.info("Transaction created successfully: {}", saved);
 
         TransactionEvent transactionEvent = getTransactionEvent(saved);
-        log.info("Transaction kafka producer called");
+        log.info("Calling saga transaction producer for transaction ID: {}", saved.getTransactionId());
         sagaTransactionStartAccountEvent.startTransaction(transactionEvent);
 
-        User user = userService.singleUser(transaction.getUserId()).orElseThrow(() -> new UserNotFoundException("User not found with id: " + transaction.getUserId()));
+        User user = userService.singleUser(transaction.getUserId())
+                .orElseThrow(() -> new UserNotFoundException("User not found with id: " + transaction.getUserId()));
         EmailDto event = new EmailDto(
                 user.getEmail(),
                 "Transaction Initiated",
                 "Your transaction with ID: " + saved.getTransactionId() + " is initiated and is currently in process."
         );
         limitKafkaProducer.produceLimitNotification(event);
+        log.info("Limit notification sent for transaction ID: {}", saved.getTransactionId());
 
         return "Transaction is in process with ID: " + saved.getTransactionId();
     }
 
     public TransactionEvent getTransactionEvent(Transaction saved) {
+        log.info("Converting transaction entity to event for transaction ID: {}", saved.getTransactionId());
         return TransactionEvent.builder()
                 .transactionId(saved.getTransactionId())
                 .accountId(saved.getAccountId())
@@ -80,10 +84,10 @@ public class TransactionServiceImpl implements TransactionService{
                 .build();
     }
 
-
     @Transactional
     @CachePut(value = "transaction", key = "#transactionId")
     public void updateTransactionStatus(String transactionId, TransactionStatus status) {
+        log.info("Updating transaction status for ID: {} to {}", transactionId, status);
         Transaction transaction = transactionRepository.findById(transactionId)
                 .orElseThrow(() -> new RuntimeException("Transaction not found: " + transactionId));
         transaction.setTransactionStatus(status);
@@ -91,49 +95,69 @@ public class TransactionServiceImpl implements TransactionService{
         log.info("Transaction {} status updated to {}", transactionId, status);
     }
 
-
     @Override
     @CacheEvict(value = "transaction", key = "#transactionId")
     public void deleteTransaction(String transactionId) {
-        Transaction transaction = transactionRepository.findById(transactionId).orElseThrow(() -> new TransactionNotFoundException("Transaction not found with id: " + transactionId));
+        log.info("Deleting transaction with ID: {}", transactionId);
+        Transaction transaction = transactionRepository.findById(transactionId)
+                .orElseThrow(() -> new TransactionNotFoundException("Transaction not found with id: " + transactionId));
         transactionRepository.delete(transaction);
+        log.info("Transaction deleted successfully: {}", transactionId);
     }
-
 
     @Override
     @Cacheable(value = "transaction", key = "#transactionId")
     public Transaction getTransactionById(String transactionId) {
-        return transactionRepository.findById(transactionId).orElseThrow(() -> new TransactionNotFoundException("Transaction not found with id: " + transactionId));
+        log.info("Fetching transaction by ID: {}", transactionId);
+        Transaction transaction = transactionRepository.findById(transactionId)
+                .orElseThrow(() -> new TransactionNotFoundException("Transaction not found with id: " + transactionId));
+        log.info("Fetched transaction: {}", transaction);
+        return transaction;
     }
 
     @Override
     @Cacheable(value = "allTransactions")
     public List<Transaction> getAllTransactions() {
-        return transactionRepository.findAll();
+        log.info("Fetching all transactions");
+        List<Transaction> transactions = transactionRepository.findAll();
+        log.info("Fetched {} transactions", transactions.size());
+        return transactions;
     }
 
     @Override
     @Cacheable(value = "transactionsByUser", key = "#userId")
     public List<Transaction> getTransactionsByUserId(String userId) {
-        return transactionRepository.findByUserId(userId);
+        log.info("Fetching transactions for user ID: {}", userId);
+        List<Transaction> transactions = transactionRepository.findByUserId(userId);
+        log.info("Fetched {} transactions for user ID: {}", transactions.size(), userId);
+        return transactions;
     }
 
     @Override
     @Cacheable(value = "transactionsByAccount", key = "#accountId")
     public List<Transaction> getTransactionsByAccountId(String accountId) {
-        return transactionRepository.findByAccountId(accountId);
+        log.info("Fetching transactions for account ID: {}", accountId);
+        List<Transaction> transactions = transactionRepository.findByAccountId(accountId);
+        log.info("Fetched {} transactions for account ID: {}", transactions.size(), accountId);
+        return transactions;
     }
 
     @Override
     @Cacheable(value = "transactionsByDate", key = "#userId + '_' + #date")
     public List<Transaction> getTransactionsByDate(String userId,String date) {
-        return transactionRepository.findByUserIdAndDate(userId, date);
+        log.info("Fetching transactions for user ID: {} on date: {}", userId, date);
+        List<Transaction> transactions = transactionRepository.findByUserIdAndDate(userId, date);
+        log.info("Fetched {} transactions for user ID: {} on date: {}", transactions.size(), userId, date);
+        return transactions;
     }
 
     @Override
     @Cacheable(value = "transactionsByCategory", key = "#userId + '_' + #category")
     public List<Transaction> getTransactionsByCategory(String userId, String category) {
-        return transactionRepository.findByUserIdAndCategory(userId, category);
+        log.info("Fetching transactions for user ID: {} and category: {}", userId, category);
+        List<Transaction> transactions = transactionRepository.findByUserIdAndCategory(userId, category);
+        log.info("Fetched {} transactions for user ID: {} and category: {}", transactions.size(), userId, category);
+        return transactions;
     }
 
 }

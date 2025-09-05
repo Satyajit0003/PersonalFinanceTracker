@@ -7,3 +7,7 @@ eureka:
   client:
     registerWithEureka: false
     fetch-registry: false
+
+spring:
+  application:
+    name: SERVICE_REGISTRY
