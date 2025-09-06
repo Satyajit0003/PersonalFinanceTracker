@@ -50,7 +50,25 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Map<String, Object>> handleUserAlreadyExistsException(UserAlreadyExistsException ex) {
         Map<String, Object> response = Map.of(
                 "message", ex.getMessage(),
-                "status", HttpStatus.NOT_FOUND
+                "status", HttpStatus.FOUND
+        );
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+    }
+
+    @ExceptionHandler(UserNameAlreadyExistsException.class)
+    public ResponseEntity<Map<String, Object>> handleUserNameAlreadyExistsException(UserNameAlreadyExistsException ex) {
+        Map<String, Object> response = Map.of(
+                "message", ex.getMessage(),
+                "status", HttpStatus.FOUND
+        );
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+    }
+
+    @ExceptionHandler(AuthenticationFailException.class)
+    public ResponseEntity<Map<String, Object>> handleAuthenticationFailException(AuthenticationFailException ex) {
+        Map<String, Object> response = Map.of(
+                "message", ex.getMessage(),
+                "status", HttpStatus.UNAUTHORIZED
         );
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
     }

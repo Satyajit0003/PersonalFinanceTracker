@@ -46,3 +46,36 @@
 05-09-2025 10:24:10.729 [http-nio-8761-exec-5] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.register - Registered instance USER-SERVICE/10.150.0.155:USER-SERVICE:8081 with status UP (replication=false)
 05-09-2025 10:24:11.746 [http-nio-8761-exec-8] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.register - Registered instance NOTIFICATION-SERVICE/10.150.0.155:NOTIFICATION-SERVICE:8088 with status UP (replication=false)
 05-09-2025 10:24:34.150 [Eureka-EvictionTimer] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 0ms
+05-09-2025 10:25:34.151 [Eureka-EvictionTimer] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 1ms
+05-09-2025 10:26:34.151 [Eureka-EvictionTimer] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 0ms
+05-09-2025 10:27:34.153 [Eureka-EvictionTimer] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 2ms
+05-09-2025 10:28:34.164 [Eureka-EvictionTimer] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 10ms
+05-09-2025 10:29:34.173 [Eureka-EvictionTimer] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 9ms
+05-09-2025 10:30:34.188 [Eureka-EvictionTimer] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 14ms
+05-09-2025 10:31:34.203 [Eureka-EvictionTimer] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 15ms
+05-09-2025 10:32:34.215 [Eureka-EvictionTimer] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 12ms
+05-09-2025 10:33:34.088 [Eureka-PeerNodesUpdater] [-] WARN  SERVICE_REGISTRY-c.n.eureka.cluster.PeerEurekaNodes.updatePeerEurekaNodes - The replica size seems to be empty. Check the route 53 DNS Registry
+05-09-2025 10:33:34.226 [Eureka-EvictionTimer] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 11ms
+05-09-2025 10:34:34.237 [Eureka-EvictionTimer] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 11ms
+05-09-2025 10:35:34.247 [Eureka-EvictionTimer] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 9ms
+05-09-2025 10:36:34.261 [Eureka-EvictionTimer] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 13ms
+05-09-2025 10:37:34.264 [Eureka-EvictionTimer] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 3ms
+05-09-2025 10:38:34.094 [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] [-] INFO  SERVICE_REGISTRY-c.n.e.r.PeerAwareInstanceRegistryImpl.updateRenewalThreshold - Current renewal threshold is : 17
+05-09-2025 10:38:34.272 [Eureka-EvictionTimer] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 8ms
+05-09-2025 10:39:34.287 [Eureka-EvictionTimer] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.run - Running the evict task with compensationTime 14ms
+05-09-2025 10:40:01.654 [http-nio-8761-exec-4] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.register - Registered instance ACCOUNT-SERVICE/10.150.0.155:ACCOUNT-SERVICE:8082 with status DOWN (replication=false)
+05-09-2025 10:40:01.654 [http-nio-8761-exec-2] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.register - Registered instance CONFIG-SERVER/10.150.0.155:CONFIG-SERVER:8086 with status DOWN (replication=false)
+05-09-2025 10:40:01.674 [http-nio-8761-exec-3] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.register - Registered instance NOTIFICATION-SERVICE/10.150.0.155:NOTIFICATION-SERVICE:8088 with status DOWN (replication=false)
+05-09-2025 10:40:01.674 [http-nio-8761-exec-5] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.register - Registered instance CATEGORY-SERVICE/10.150.0.155:CATEGORY-SERVICE:8084 with status DOWN (replication=false)
+05-09-2025 10:40:01.677 [http-nio-8761-exec-9] [-] INFO  SERVICE_REGISTRY-c.n.e.r.AbstractInstanceRegistry.register - Registered instance API-GATEWAY/10.150.0.155:API-GATEWAY:8087 with status DOWN (replication=false)
+05-09-2025 10:40:01.681 [SpringApplicationShutdownHook] [-] INFO  SERVICE_REGISTRY-o.s.c.n.e.s.EurekaServiceRegistry.deregister - Unregistering application SERVICE_REGISTRY with eureka with status DOWN
+05-09-2025 10:40:01.689 [SpringApplicationShutdownHook] [-] INFO  SERVICE_REGISTRY-o.s.b.w.e.tomcat.GracefulShutdown.shutDownGracefully - Commencing graceful shutdown. Waiting for active requests to complete
+05-09-2025 10:40:01.710 [tomcat-shutdown] [-] INFO  SERVICE_REGISTRY-o.s.b.w.e.tomcat.GracefulShutdown.doShutdown - Graceful shutdown complete
+05-09-2025 10:40:01.715 [SpringApplicationShutdownHook] [-] INFO  SERVICE_REGISTRY-o.s.c.n.e.s.EurekaServerBootstrap.contextDestroyed - Shutting down Eureka Server..
+05-09-2025 10:40:01.715 [SpringApplicationShutdownHook] [-] INFO  SERVICE_REGISTRY-c.n.e.DefaultEurekaServerContext.shutdown - Shutting down ...
+05-09-2025 10:40:01.716 [SpringApplicationShutdownHook] [-] INFO  SERVICE_REGISTRY-c.n.e.DefaultEurekaServerContext.shutdown - Shut down
+05-09-2025 10:40:01.716 [SpringApplicationShutdownHook] [-] INFO  SERVICE_REGISTRY-o.s.c.n.e.s.EurekaServerBootstrap.contextDestroyed - Eureka Service is now shutdown...
+05-09-2025 10:40:01.718 [SpringApplicationShutdownHook] [-] INFO  SERVICE_REGISTRY-c.n.e.DefaultEurekaServerContext.shutdown - Shutting down ...
+05-09-2025 10:40:01.718 [SpringApplicationShutdownHook] [-] INFO  SERVICE_REGISTRY-c.n.e.DefaultEurekaServerContext.shutdown - Shut down
+05-09-2025 10:40:01.726 [SpringApplicationShutdownHook] [-] INFO  SERVICE_REGISTRY-c.netflix.discovery.DiscoveryClient.shutdown - Shutting down DiscoveryClient ...
+05-09-2025 10:40:01.726 [SpringApplicationShutdownHook] [-] INFO  SERVICE_REGISTRY-c.netflix.discovery.DiscoveryClient.shutdown - Completed shut down of DiscoveryClient

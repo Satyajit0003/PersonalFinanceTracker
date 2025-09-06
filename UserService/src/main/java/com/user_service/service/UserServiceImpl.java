@@ -14,6 +14,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,6 +28,7 @@ public class UserServiceImpl implements UserService {
     private final AccountService accountService;
     private final TransactionService transactionService;
     private final GoalService goalService;
+    private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     public UserServiceImpl(UserRepository userRepository, AccountService accountService, TransactionService transactionService, GoalService goalService) {
         this.userRepository = userRepository;
@@ -38,6 +41,10 @@ public class UserServiceImpl implements UserService {
     @CachePut(value = "user", key = "#result.userId")
     public User createUser(UserDto userDto, String role) {
         log.info("Creating user with data: {} and role: {}", userDto, role);
+        if(userRepository.existsByUserName(userDto.getUserName())){
+            log.error("User creation failed. UserName {} already exists.", userDto.getUserName());
+            throw new UserNameAlreadyExistsException("User with username " + userDto.getUserName() + " already exists.");
+        }
         if(userRepository.existsByEmail(userDto.getEmail())){
             log.error("User creation failed. Email {} already exists.", userDto.getEmail());
             throw new UserAlreadyExistsException("User with email " + userDto.getEmail() + " already exists.");
@@ -45,7 +52,7 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setUserName(userDto.getUserName());
         user.setEmail(userDto.getEmail());
-        user.setPassword(userDto.getPassword());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole(role);
         User savedUser = userRepository.save(user);
         log.info("User created successfully: {}", savedUser);
