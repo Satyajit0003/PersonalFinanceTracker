@@ -39,16 +39,9 @@ public class AdminController {
     @GetMapping("/get-user/{userId}")
     public ResponseEntity<User> getUserById(@PathVariable String userId) {
         log.info("Fetching user by ID: {}", userId);
-        User user = userService.getUserById(userId);
+        User user = userService.getUserByUserName(userId);
         log.info("Fetched user: {}", user);
         return ResponseEntity.ok(user);
     }
 
-    @GetMapping("/single-user/{userId}")
-    public ResponseEntity<User> singleUser(@PathVariable String userId) {
-        log.info("Fetching single user by ID: {}", userId);
-        User user = userService.getUser(userId);
-        log.info("Fetched single user: {}", user);
-        return ResponseEntity.ok(user);
-    }
 }

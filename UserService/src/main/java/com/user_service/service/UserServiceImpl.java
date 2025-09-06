@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @CachePut(value = "user", key = "#result.userId")
+    @CachePut(value = "user", key = "#result.userName")
     public User createUser(UserDto userDto, String role) {
         log.info("Creating user with data: {} and role: {}", userDto, role);
         if(userRepository.existsByUserName(userDto.getUserName())){
@@ -60,13 +60,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Cacheable(value = "user", key = "#userId")
-    public User getUserById(String userId) {
-        log.info("Fetching user by ID with full details: {}", userId);
-        List<Account> accounts = accountService.getAccountsByUserId(userId).orElseThrow(() -> new AccountNotFoundException("Accounts for user with ID " + userId + " not found."));
-        List<Transaction> transactions = transactionService.getTransactionsByUserId(userId).orElseThrow(() -> new TransactionNotFoundException("Transactions for user with ID " + userId + " not found."));
-        List<Goal> goals = goalService.getGoalsByUserId(userId).orElseThrow(() -> new GoalNotFoundException("Goals for user with ID " + userId + " not found."));
-        User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User with ID " + userId + " not found."));
+    @Cacheable(value = "user", key = "#result.userName")
+    public User getUserByUserName(String userName) {
+        log.info("Fetching user by username with full details: {}", userName);
+        User user = userRepository.findByUserName(userName).orElseThrow(() -> new UserNotFoundException("User with username " + userName + " not found."));
+        List<Account> accounts = accountService.getAccountsByUserId(user.getUserId()).orElseThrow(() -> new AccountNotFoundException("Accounts for user with ID " + user.getUserId() + " not found."));
+        List<Transaction> transactions = transactionService.getTransactionsByUserId(user.getUserId()).orElseThrow(() -> new TransactionNotFoundException("Transactions for user with ID " + user.getUserId() + " not found."));
+        List<Goal> goals = goalService.getGoalsByUserId(user.getUserId()).orElseThrow(() -> new GoalNotFoundException("Goals for user with ID " + user.getUserId() + " not found."));
         user.setAccounts(accounts);
         user.setTransactions(transactions);
         user.setGoals(goals);
@@ -75,10 +75,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Cacheable(value = "singleUser", key = "#userId")
-    public User getUser(String userId) {
-        log.info("Fetching single user by ID: {}", userId);
-        User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User with ID " + userId + " not found."));
+    @Cacheable(value = "singleUser", key = "#result.userName")
+    public User getUser(String userName) {
+        log.info("Fetching single user by username: {}", userName);
+        User user = userRepository.findByUserName(userName).orElseThrow(() -> new UserNotFoundException("User with username " + userName + " not found."));
         log.info("Fetched user: {}", user);
         return user;
     }
@@ -93,10 +93,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @CachePut(value = "user", key = "#userId")
-    public User updateUser(UserDto userDto, String userId) {
-        log.info("Updating user with ID: {} and data: {}", userId, userDto);
-        User oldUser = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User with ID " + userId + " not found."));
+    @CachePut(value = "user", key = "#result.userName")
+    public User updateUser(UserDto userDto, String userName) {
+        log.info("Updating user with username: {} and data: {}", userName, userDto);
+        User oldUser = userRepository.findByUserName(userName).orElseThrow(() -> new UserNotFoundException("User with username " + userName + " not found."));
         oldUser.setUserName(userDto.getUserName());
         oldUser.setEmail(userDto.getEmail());
         oldUser.setPassword(userDto.getPassword());
@@ -106,11 +106,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @CacheEvict(value = "user", key = "#userId")
-    public void deleteUser(String userId) {
-        log.info("Deleting user with ID: {}", userId);
-        User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User with ID " + userId + " not found."));
+    @CacheEvict(value = "user", key = "#userName")
+    public void deleteUser(String userName) {
+        log.info("Deleting user with username: {}", userName);
+        User user = userRepository.findByUserName(userName).orElseThrow(() -> new UserNotFoundException("User with username " + userName + " not found."));
         userRepository.delete(user);
-        log.info("User deleted successfully: {}", userId);
+        log.info("User deleted successfully: {}", userName);
     }
 }

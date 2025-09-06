@@ -10,15 +10,15 @@ public interface UserService {
 
     User createUser(UserDto userDto, String role);
 
-    User getUserById(String id);
+    User getUserByUserName(String username);
 
-    User getUser(String userId);
+    User getUser(String username);
 
     List<User> getAllUsers();
 
-    User updateUser(UserDto userDto, String userId);
+    User updateUser(UserDto userDto, String username);
 
-    void deleteUser(String userId);
+    void deleteUser(String username);
 
 
 }
